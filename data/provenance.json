@@ -1,0 +1,108 @@
+{
+ "sources": {
+  "wikispeedia": {
+   "url": "https://snap.stanford.edu/data/wikispeedia/wikispeedia_paths-and-graph.tar.gz",
+   "sha256": "97697096f5d2dcb77aa69e3992305c6c561de89edb9fb10b5ad9feaf8ba534d5",
+   "bytes": 9901821
+  },
+  "facebook": {
+   "url": "https://snap.stanford.edu/data/facebook.tar.gz",
+   "sha256": "78594c43169b698e99a77741bc298581af87146e4f3d3e8ad48a48361b5d92b6",
+   "bytes": 732104
+  },
+  "facebook_combined": {
+   "url": "https://snap.stanford.edu/data/facebook_combined.txt.gz",
+   "sha256": "125e84db872eeba443d270c70315c256b0af43a502fcfe51f50621166ad035d7",
+   "bytes": 218576
+  }
+ },
+ "small": {
+  "source": "wikispeedia",
+  "rule": "induced on subject.Science.Physics",
+  "label_scheme": "physics subcategory",
+  "nodes": 222,
+  "edges": 1982,
+  "labelled": 222,
+  "max_degree": 113,
+  "sum_deg2": 132314
+ },
+ "large": {
+  "articles": 4604,
+  "raw_links": 119882,
+  "self_links": 110,
+  "undirected_edges": 106537,
+  "nodes_with_links": 4592,
+  "source": "wikispeedia",
+  "rule": "largest component",
+  "label_scheme": "top-level subject",
+  "dropped_nodes": [
+   "Badugi",
+   "Color_Graphics_Adapter",
+   "Directdebit",
+   "Donation",
+   "Douglas_DC-4",
+   "Friend_Directdebit",
+   "Lone_Wolf_(gamebooks)",
+   "Private_Peaceful",
+   "Schatzki_ring",
+   "Sponsorship_Directdebit",
+   "Suikinkutsu",
+   "Underground_(stories)",
+   "Vacutainer",
+   "Wikipedia_Text_of_the_GNU_Free_Documentation_License",
+   "Wowpurchase"
+  ],
+  "no_category_kept": [
+   "Pikachu"
+  ],
+  "nodes": 4589,
+  "edges": 106534,
+  "labelled": 4588,
+  "max_degree": 1621,
+  "sum_deg2": 32302164
+ },
+ "fb_small": {
+  "source": "ego-Facebook 0",
+  "ego_node": "omitted, as in SNAP's 0.edges",
+  "nodes_before_lcc": 347,
+  "rule": "largest component",
+  "label_scheme": "circle",
+  "nodes": 324,
+  "edges": 2514,
+  "labelled": 268,
+  "max_degree": 77,
+  "sum_deg2": 156340
+ },
+ "fb_large": {
+  "source": "ego-Facebook combined",
+  "rule": "as distributed",
+  "label_scheme": "circle (ego/circle)",
+  "nodes": 4039,
+  "edges": 88234,
+  "labelled": 2884,
+  "max_degree": 1045,
+  "sum_deg2": 18806166
+ },
+ "query_degrees": {
+  "HD_28185": {
+   "small_degree": 7,
+   "large_degree": 11
+  },
+  "Integrated_circuit": {
+   "small_degree": 8,
+   "large_degree": 43
+  },
+  "90377_Sedna": {
+   "small_degree": 13,
+   "large_degree": 20
+  },
+  "Andromeda_Galaxy": {
+   "small_degree": 18,
+   "large_degree": 19
+  },
+  "Special_relativity": {
+   "small_degree": 28,
+   "large_degree": 39
+  }
+ }
+}

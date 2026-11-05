@@ -1,0 +1,1786 @@
+{
+"1": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"10": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"100": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"101": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"102": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"103": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"104": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"105": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"106": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"107": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"108": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"109": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"11": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"110": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"111": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"112": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"113": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"114": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"115": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"116": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"117": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"118": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"119": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"12": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"120": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"121": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"122": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"123": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"124": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"125": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"126": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"127": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"128": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"129": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"13": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"130": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"131": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"132": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"133": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"134": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"135": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"136": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"137": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"138": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"139": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"14": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"140": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"141": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"142": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"143": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"144": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"145": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"146": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"147": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"148": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"149": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"15": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"150": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"151": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"152": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"153": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"154": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"155": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"156": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"157": {
+"labels": [
+"Space_Astronomy",
+"The_Planets"
+],
+"phys": [
+"Space_Astronomy",
+"The_Planets"
+]
+},
+"158": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"159": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"16": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"160": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"161": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"162": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"163": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"164": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"165": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"166": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"167": {
+"labels": [
+"General_Physics",
+"Space_Astronomy"
+],
+"phys": [
+"General_Physics",
+"Space_Astronomy"
+]
+},
+"168": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"169": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"17": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"170": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"171": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"172": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"173": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"174": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"175": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"176": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"177": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"178": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"179": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"18": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"180": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"181": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"182": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"183": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"184": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"185": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"186": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"187": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"188": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"189": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"19": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"190": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"191": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"192": {
+"labels": [
+"General_Physics",
+"Space_transport"
+],
+"phys": [
+"General_Physics",
+"Space_transport"
+]
+},
+"193": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"194": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"195": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"196": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"197": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"198": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"199": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"2": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"20": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"200": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"201": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"202": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"203": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"204": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"205": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"206": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"207": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"208": {
+"labels": [
+"Space_Astronomy",
+"The_Planets"
+],
+"phys": [
+"Space_Astronomy",
+"The_Planets"
+]
+},
+"209": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"21": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"210": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"211": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"212": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"213": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"214": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"215": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"216": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"217": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"218": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"219": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"22": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"220": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"221": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"222": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"23": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"24": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"25": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"26": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"27": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"28": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"29": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"3": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"30": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"31": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"32": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"33": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"34": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"35": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"36": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"37": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"38": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"39": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"4": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"40": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"41": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"42": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"43": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"44": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"45": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"46": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"47": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"48": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"49": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"5": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"50": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"51": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"52": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"53": {
+"labels": [
+"The_Planets"
+],
+"phys": [
+"The_Planets"
+]
+},
+"54": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"55": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"56": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"57": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"58": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"59": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"6": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"60": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"61": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"62": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"63": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"64": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"65": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"66": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"67": {
+"labels": [
+"Space_transport"
+],
+"phys": [
+"Space_transport"
+]
+},
+"68": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"69": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"7": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"70": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"71": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"72": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"73": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"74": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"75": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"76": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"77": {
+"labels": [
+"Electricity_and_Electronics"
+],
+"phys": [
+"Electricity_and_Electronics"
+]
+},
+"78": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"79": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"8": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"80": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"81": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"82": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"83": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"84": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"85": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"86": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"87": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"88": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"89": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"9": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"90": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"91": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"92": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"93": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"94": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"95": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"96": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"97": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+},
+"98": {
+"labels": [
+"General_Physics"
+],
+"phys": [
+"General_Physics"
+]
+},
+"99": {
+"labels": [
+"Space_Astronomy"
+],
+"phys": [
+"Space_Astronomy"
+]
+}
+}

@@ -1,0 +1,10 @@
+# Python 3.11. node2vec's pyproject asks for gensim ^4.3, numpy ^1.24.
+gensim==4.3.3
+numpy==1.26.4
+scipy==1.13.1
+networkx==3.4.2
+joblib==1.6.0
+tqdm
+six==1.17.0
+psutil==7.2.2
+matplotlib==3.11.2
