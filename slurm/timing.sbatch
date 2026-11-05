@@ -1,6 +1,6 @@
 #!/bin/bash
 # Timed runs: 8 cores on one CPU model, run one at a time, so these runs cannot inflate each other's clocks. Other users'
-# jobs may share the node (a whole node sat pending for 3 hours at fair-share 0.016), so the 3 repeats show that noise.
+# jobs may share the node (a whole node sat pending for nearly 2 hours at fair-share 0.016), so the 3 repeats show that noise.
 # Every timing table is drawn from this job only. sbatch slurm/timing.sbatch
 #SBATCH -J hw5-timing
 #SBATCH -p ice-cpu

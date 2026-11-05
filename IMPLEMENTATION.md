@@ -52,6 +52,6 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
   not reaching further than the heuristics.
 
 ### Nov 5 (13:45): timing job moved off an exclusive node
-- A whole node stayed pending for 3 hours. The user accepted the 8-core `gold6226` job: same CPU model and thread count, runs
+- A whole node stayed pending for nearly 2 hours. The user accepted the 8-core `gold6226` job: same CPU model and thread count, runs
   one at a time, `workers` scaling to 8. Limitation for the report: other users' jobs may share the node.
 - Selection: p=2, q=0.5 on both graphs. A/A check holds on the large graph (same loss, DeepWalk vs p=q=1, no significant gap).
