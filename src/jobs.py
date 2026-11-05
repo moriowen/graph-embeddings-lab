@@ -46,6 +46,8 @@ def main():
         t = json.loads(p.read_text())
         rows = []
         for g in g2:
+            if g not in t:
+                continue
             c = t[g]["config"]
             rows += [line(g, c, s) for s in SEEDS]
             rows += [line(g, c, s, k) for s in SEEDS for k in SPLITS if k]
