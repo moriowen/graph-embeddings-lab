@@ -2,7 +2,7 @@
 
     python -m src.stats
 
-Reads only result files. Timing tables use only records from the exclusive-node job (tag timing_), quality uses only
+Reads only result files. Timing tables use only records from the dedicated timing job (tag timing_), quality uses only
 the grid. Paired tests compare per-node test NDCG@20 averaged over seeds first, so seeds are not treated as independent
 nodes. Selection of p and q reads validation scores only.
 """

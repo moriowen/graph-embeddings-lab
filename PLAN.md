@@ -94,7 +94,7 @@ Jaccard between seeds. Split variation: 2 further splits for the main rows. `wor
 **6. Lists:** the 40 required lists use the literal handout meaning (nearest nodes, query excluded), marked
 ✓ held-out, ● training neighbour, and by label match. Seed-to-seed stability is shown next to them.
 
-**7. Runtime:** dedicated `--exclusive` single-node job, separate from the quality array, 3 repeats per row:
+**7. Runtime:** dedicated job on 8 `gold6226` cores, runs one at a time, separate from the quality grid, 3 repeats per row (amended Nov 5: an exclusive node sat pending for 3 hours, so other users may share the node and `workers` scaling stops at 8):
 probability precompute, walks, word2vec, single-query mean and p95, peak RSS, and baselines. Scaling is compared
 with node ratio (20.7×), edge ratio (~54×) and Σdeg² ratio (~244×).
 

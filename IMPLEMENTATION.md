@@ -11,7 +11,7 @@
 ssh amohite8@login-ice.pace.gatech.edu 'cd ~/scratch/HW5 && sbatch slurm/venv.sbatch'
 # Grid: shared list, several 8-core pool jobs claim lines. Arrays exceed the 50-job QOS.
 ssh ... 'cd ~/scratch/HW5 && sbatch slurm/pool.sbatch slurm/jobs/all.txt'
-# Timing: one exclusive node, sequential; the only source of timing tables
+# Timing: 8 gold6226 cores, sequential; the only source of timing tables
 ssh ... 'cd ~/scratch/HW5 && sbatch slurm/timing.sbatch'
 # ICE -> Mac, then analysis and report
 ./sync.sh pull
@@ -23,7 +23,7 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
 - `coc-ice` QOS: 50 submitted jobs per user, array tasks count.
 - `-m src.*` needs `PYTHONPATH=$PWD`. Python 3.11 only: gensim 4.3.3 has no 3.14 wheels.
 - Vendored DeepWalk's `if start:` skips node 0, so ids start at 1 (`src/data.py`, `src/embed.py`).
-- Only gold6226 nodes; `machine` separates `-grid` (contended, quality only) from `-exclusive` (timing tables).
+- Timing on gold6226 only; `machine` separates `-grid` (contended, quality only) from `-8core` (timing tables).
 - The TDS blog returns HTTP 403 to automated fetches. The user has to read it in a browser, or Q1 discloses it wasn't read.
 
 ## Results log
@@ -50,3 +50,8 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
   hubs. Euclidean beats cosine on links (0.418 vs 0.338) and loses on lift. This contradicts the brief's expectation.
 - S3: 94% of small-graph test edges are within two hops and 95% of embedding slots land within two hops, so embeddings are
   not reaching further than the heuristics.
+
+### Nov 5 (13:45): timing job moved off an exclusive node
+- A whole node stayed pending for 3 hours. The user accepted the 8-core `gold6226` job: same CPU model and thread count, runs
+  one at a time, `workers` scaling to 8. Limitation for the report: other users' jobs may share the node.
+- Selection: p=2, q=0.5 on both graphs. A/A check holds on the large graph (same loss, DeepWalk vs p=q=1, no significant gap).
