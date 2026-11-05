@@ -72,7 +72,7 @@ def process(args):
     walks = graph.build_deepwalk_corpus(G, num_paths=args.number_walks,
                                         path_length=args.walk_length, alpha=0, rand=random.Random(args.seed))
     print("Training...")
-    model = Word2Vec(walks, size=args.representation_size, window=args.window_size, min_count=0, sg=1, hs=1, workers=args.workers)
+    model = Word2Vec(walks, vector_size=args.representation_size, window=args.window_size, min_count=0, sg=1, hs=1, workers=args.workers, seed=args.seed)
   else:
     print("Data size {} is larger than limit (max-memory-data-size: {}).  Dumping walks to disk.".format(data_size, args.max_memory_data_size))
     print("Walking...")
@@ -92,7 +92,7 @@ def process(args):
     print("Training...")
     walks_corpus = serialized_walks.WalksCorpus(walk_files)
     model = Skipgram(sentences=walks_corpus, vocabulary_counts=vertex_counts,
-                     size=args.representation_size,
+                     vector_size=args.representation_size,
                      window=args.window_size, min_count=0, trim_rule=None, workers=args.workers)
 
   model.wv.save_word2vec_format(args.output)

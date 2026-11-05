@@ -1,0 +1,67 @@
+diff --git a/vendor/deepwalk/__main__.py b/vendor/deepwalk/__main__.py
+index 1070e07..270944d 100644
+--- a/vendor/deepwalk/__main__.py
++++ b/vendor/deepwalk/__main__.py
+@@ -72,7 +72,7 @@ def process(args):
+     walks = graph.build_deepwalk_corpus(G, num_paths=args.number_walks,
+                                         path_length=args.walk_length, alpha=0, rand=random.Random(args.seed))
+     print("Training...")
+-    model = Word2Vec(walks, size=args.representation_size, window=args.window_size, min_count=0, sg=1, hs=1, workers=args.workers)
++    model = Word2Vec(walks, vector_size=args.representation_size, window=args.window_size, min_count=0, sg=1, hs=1, workers=args.workers, seed=args.seed)
+   else:
+     print("Data size {} is larger than limit (max-memory-data-size: {}).  Dumping walks to disk.".format(data_size, args.max_memory_data_size))
+     print("Walking...")
+@@ -92,7 +92,7 @@ def process(args):
+     print("Training...")
+     walks_corpus = serialized_walks.WalksCorpus(walk_files)
+     model = Skipgram(sentences=walks_corpus, vocabulary_counts=vertex_counts,
+-                     size=args.representation_size,
++                     vector_size=args.representation_size,
+                      window=args.window_size, min_count=0, trim_rule=None, workers=args.workers)
+ 
+   model.wv.save_word2vec_format(args.output)
+diff --git a/vendor/deepwalk/graph.py b/vendor/deepwalk/graph.py
+index 428deca..e5e8669 100644
+--- a/vendor/deepwalk/graph.py
++++ b/vendor/deepwalk/graph.py
+@@ -11,7 +11,8 @@ from time import time
+ from glob import glob
+ from six.moves import range, zip, zip_longest
+ from six import iterkeys
+-from collections import defaultdict, Iterable
++from collections import defaultdict
++from collections.abc import Iterable
+ import random
+ from random import shuffle
+ from itertools import product,permutations
+diff --git a/vendor/deepwalk/skipgram.py b/vendor/deepwalk/skipgram.py
+index 42c0770..b7b0909 100644
+--- a/vendor/deepwalk/skipgram.py
++++ b/vendor/deepwalk/skipgram.py
+@@ -1,4 +1,5 @@
+-from collections import Counter, Mapping
++from collections import Counter
++from collections.abc import Mapping
+ from concurrent.futures import ProcessPoolExecutor
+ import logging
+ from multiprocessing import cpu_count
+@@ -18,7 +19,7 @@ class Skipgram(Word2Vec):
+ 
+         kwargs["min_count"] = kwargs.get("min_count", 0)
+         kwargs["workers"] = kwargs.get("workers", cpu_count())
+-        kwargs["size"] = kwargs.get("size", 128)
++        kwargs["vector_size"] = kwargs.get("vector_size", 128)
+         kwargs["sentences"] = kwargs.get("sentences", None)
+         kwargs["window"] = kwargs.get("window", 10)
+         kwargs["sg"] = 1
+diff --git a/vendor/node2vec/__init__.py b/vendor/node2vec/__init__.py
+index 58e2717..3b84fa5 100644
+--- a/vendor/node2vec/__init__.py
++++ b/vendor/node2vec/__init__.py
+@@ -1,5 +1,4 @@
+ from . import edges
+ from .node2vec import Node2Vec
+-from importlib import metadata
+ 
+-__version__ = metadata.version('node2vec')
++__version__ = '0.5.0'  # HW5 vendor patch: no installed package metadata
