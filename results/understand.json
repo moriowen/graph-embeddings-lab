@@ -1,0 +1,3986 @@
+{
+ "lists": {
+  "small": {
+   "HD_28185": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gas_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Planetary_habitability",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       }
+      ],
+      "seed_jaccard": 0.28968253968253965,
+      "label": 0.8,
+      "train": 0.6,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gas_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Planetary_habitability",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Proxima_Centauri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "HD_209458_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Gliese_876_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Gliese_876_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Solar_System",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "16_Cygni",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Energy",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Wave",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Extraterrestrial_life",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Mars",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "47_Ursae_Majoris",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "55_Cancri_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Gliese_876",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.5139356939356938,
+      "label": 0.75,
+      "train": 0.2,
+      "held": 0.0
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Proxima_Centauri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "16_Cygni",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "HD_209458_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "16_Cygni_Bb",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.32142857142857134,
+      "label": 1.0,
+      "train": 0.0,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Proxima_Centauri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "16_Cygni",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "HD_209458_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "16_Cygni_Bb",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Jupiter",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Gliese_876_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "HD_217107_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Temperate",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Gliese_876",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Mars",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Aberration_of_light",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "47_Ursae_Majoris",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Gliese_876_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Upsilon_Andromedae_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Star",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 3
+       }
+      ],
+      "seed_jaccard": 0.4574330905365388,
+      "label": 0.75,
+      "train": 0.1,
+      "held": 0.05
+     }
+    },
+    "between": {
+     "5": 0.20793650793650795,
+     "20": 0.48229548229548225
+    }
+   },
+   "Integrated_circuit": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Bluetooth",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Radio_frequency",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Photon",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Optical_telescope",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       }
+      ],
+      "seed_jaccard": 0.5869047619047619,
+      "label": 0.2,
+      "train": 0.6,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Bluetooth",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Radio_frequency",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Photon",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Optical_telescope",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Chromatic_aberration",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Cosmic_inflation",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Magnetism",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Ohm",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Diffuse_interstellar_band",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Hubble's_law",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Time",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Semiconductor",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Quantum_mechanics",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Color",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "String_theory",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Maxwell's_equations",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Metric_expansion_of_space",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Sound",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.48356532356532356,
+      "label": 0.3,
+      "train": 0.15,
+      "held": 0.05
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Bluetooth",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Radio_frequency",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Optical_telescope",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Photon",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.4404761904761904,
+      "label": 0.2,
+      "train": 0.6,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Bluetooth",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Radio_frequency",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Optical_telescope",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Photon",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble's_law",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Chromatic_aberration",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Optical_microscope",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Cosmic_inflation",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Diffuse_interstellar_band",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Casimir_effect",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Sound",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Renormalization",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Coulomb's_law",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Physics",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Wave",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Maxwell's_equations",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Nuclear_fission",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Color",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.487993487993488,
+      "label": 0.2,
+      "train": 0.15,
+      "held": 0.05
+     }
+    },
+    "between": {
+     "5": 0.519047619047619,
+     "20": 0.567199306329741
+    }
+   },
+   "90377_Sedna": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "1_Ceres",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Ceres_(dwarf_planet)",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.5333333333333334,
+      "label": 1.0,
+      "train": 0.6,
+      "held": 0.4
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "1_Ceres",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Ceres_(dwarf_planet)",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Kuiper_belt",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Asteroid",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Sun",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Algol",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Upsilon_Andromedae_d",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Planet",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Venus",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Gravitation",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Solar_System",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Aberration_of_light",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Saturn",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.4966449131966373,
+      "label": 0.7,
+      "train": 0.4,
+      "held": 0.15
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Ceres_(dwarf_planet)",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "1_Ceres",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 4
+       }
+      ],
+      "seed_jaccard": 0.5869047619047619,
+      "label": 1.0,
+      "train": 0.6,
+      "held": 0.4
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Ceres_(dwarf_planet)",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "1_Ceres",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Kuiper_belt",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Sun",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Uranus",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Upsilon_Andromedae_d",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Aberration_of_light",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Temperate",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Planet",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "4_Vesta",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "3_Juno",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "55_Cancri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gliese_876",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Solar_System",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Mars",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.5958404558404559,
+      "label": 0.7,
+      "train": 0.35,
+      "held": 0.15
+     }
+    },
+    "between": {
+     "5": 0.5904761904761904,
+     "20": 0.4961469692504175
+    }
+   },
+   "Andromeda_Galaxy": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Galaxy",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pleiades_(star_cluster)",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "H_II_region",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Orion_Nebula",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Universe",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.26190476190476186,
+      "label": 1.0,
+      "train": 0.6,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Galaxy",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pleiades_(star_cluster)",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "H_II_region",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Orion_Nebula",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Universe",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Algol",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Comet_Hale-Bopp",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Leo_(constellation)",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "PSR_B1620-26c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Sirius",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Milky_Way",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Fermi_paradox",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Red_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Open_cluster",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Redshift",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Extraterrestrial_life",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Shenzhou_6",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "European_Space_Agency",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Apollo_11",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.4499782465299707,
+      "label": 0.85,
+      "train": 0.4,
+      "held": 0.05
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Milky_Way",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "PSR_B1620-26c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Red_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Comet_Hale-Bopp",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Open_cluster",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       }
+      ],
+      "seed_jaccard": 0.24285714285714283,
+      "label": 1.0,
+      "train": 0.0,
+      "held": 0.2
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Milky_Way",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "PSR_B1620-26c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Red_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Comet_Hale-Bopp",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Open_cluster",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Galaxy",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_d",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Pleiades_(star_cluster)",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Uranus",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Algol",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Fermi_paradox",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble_Space_Telescope",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Radio_telescope",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Globular_cluster",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Hubble_Deep_Field",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Gas",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Orion_Nebula",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Venus",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Planet",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.44889921103491737,
+      "label": 0.75,
+      "train": 0.1,
+      "held": 0.1
+     }
+    },
+    "between": {
+     "5": 0.17222222222222222,
+     "20": 0.4322316253350736
+    }
+   },
+   "Special_relativity": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Quantum_mechanics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Time",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Wave\u2013particle_duality",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Big_Bang",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Physics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.34325396825396826,
+      "label": 0.8,
+      "train": 0.8,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Quantum_mechanics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Time",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Wave\u2013particle_duality",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Big_Bang",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Physics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "String_theory",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Wave",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Luminiferous_aether",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Speed_of_light",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Entropy",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Physical_paradox",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Neutron",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Schr\u00f6dinger_equation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hawking_radiation",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Time_zone",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Cosmic_microwave_background_radiation",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 1
+       },
+       {
+        "title": "Hubble's_law",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Renormalization",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.5455270655270654,
+      "label": 0.75,
+      "train": 0.45,
+      "held": 0.15
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Physics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Luminiferous_aether",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Big_Bang",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Casimir_effect",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       }
+      ],
+      "seed_jaccard": 0.5238095238095238,
+      "label": 0.6,
+      "train": 0.4,
+      "held": 0.2
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Physics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Luminiferous_aether",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Big_Bang",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Casimir_effect",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Cosmic_inflation",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Wave\u2013particle_duality",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Time",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "String_theory",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Entropy",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Speed_of_light",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Quantum_mechanics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Renormalization",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Maxwell's_equations",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Metric_expansion_of_space",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Physical_paradox",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Cosmic_microwave_background_radiation",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Wave",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       }
+      ],
+      "seed_jaccard": 0.612097821663039,
+      "label": 0.65,
+      "train": 0.45,
+      "held": 0.2
+     }
+    },
+    "between": {
+     "5": 0.25793650793650796,
+     "20": 0.5183068783068783
+    }
+   }
+  },
+  "large": {
+   "HD_28185": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "47_Ursae_Majoris",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.4404761904761904,
+      "label": 1.0,
+      "train": 0.4,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "47_Ursae_Majoris",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Solar_System",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Gliese_876_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Star",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Planetary_habitability",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gliese_876_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gliese_876",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "55_Cancri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gas_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Red_dwarf",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "55_Cancri_d",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "47_Ursae_Majoris_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "HD_217107",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.7417654808959158,
+      "label": 1.0,
+      "train": 0.2,
+      "held": 0.0
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Planetary_habitability",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "47_Ursae_Majoris",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       }
+      ],
+      "seed_jaccard": 0.4321428571428571,
+      "label": 1.0,
+      "train": 0.6,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "HD_28185_b",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Extrasolar_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Planetary_habitability",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "47_Ursae_Majoris",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gliese_876_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Red_dwarf",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Star",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gliese_876_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Sun",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Gliese_876",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "55_Cancri_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Upsilon_Andromedae_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "16_Cygni",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Solar_System",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Gas_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "HD_217107_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       }
+      ],
+      "seed_jaccard": 0.6367568663220836,
+      "label": 1.0,
+      "train": 0.25,
+      "held": 0.0
+     }
+    },
+    "between": {
+     "5": 0.32936507936507936,
+     "20": 0.6266666666666667
+    }
+   },
+   "Integrated_circuit": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Semiconductor_device",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Moore's_Law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electronics",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Semiconductor",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Central_processing_unit",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.5238095238095238,
+      "label": 0.8,
+      "train": 0.8,
+      "held": 0.2
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Semiconductor_device",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Moore's_Law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electronics",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Semiconductor",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Central_processing_unit",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gallium",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Silicon",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "CPU_cache",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Ultraviolet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Indium",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Germanium",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Speed_of_light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Bluetooth",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Electron",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Communication",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Aluminium",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Magnetism",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Metallurgy",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.5645014245014245,
+      "label": 0.9,
+      "train": 0.65,
+      "held": 0.1
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Moore's_Law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Semiconductor_device",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Semiconductor",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Electronics",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Central_processing_unit",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       }
+      ],
+      "seed_jaccard": 0.4563492063492064,
+      "label": 0.8,
+      "train": 0.8,
+      "held": 0.2
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Moore's_Law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Semiconductor_device",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Semiconductor",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electronics",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Central_processing_unit",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Photon",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Bluetooth",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Gallium",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Wave",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "CPU_cache",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Speed_of_light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Sound",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Electronic_amplifier",
+        "train": false,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Communication",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "Intel_Corporation",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 4
+       },
+       {
+        "title": "Germanium",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Electrical_resistance",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Electron",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Indium",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.5240618640618641,
+      "label": 0.8,
+      "train": 0.55,
+      "held": 0.1
+     }
+    },
+    "between": {
+     "5": 0.4436507936507937,
+     "20": 0.4526658526658527
+    }
+   },
+   "90377_Sedna": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Kuiper_belt",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       }
+      ],
+      "seed_jaccard": 1.0,
+      "label": 1.0,
+      "train": 1.0,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Kuiper_belt",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Saturn",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Ceres_(dwarf_planet)",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Telescope",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "55_Cancri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Solar_System",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Great_Red_Spot",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Neptune",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "1_Ceres",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Mu_Arae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "47_Ursae_Majoris_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Day",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "55_Cancri_d",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       }
+      ],
+      "seed_jaccard": 0.7199472990777338,
+      "label": 0.9,
+      "train": 0.5,
+      "held": 0.05
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Kuiper_belt",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       }
+      ],
+      "seed_jaccard": 0.8666666666666666,
+      "label": 1.0,
+      "train": 1.0,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Eris_(dwarf_planet)",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Scattered_disc",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Kuiper_belt",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Definition_of_planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Pluto",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Planet",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Solar_System",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Telescope",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Neptune",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Great_Red_Spot",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Ceres_(dwarf_planet)",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Saturn",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "55_Cancri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Upsilon_Andromedae",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble_Space_Telescope",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Gliese_876",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "55_Cancri_d",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Day",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 2
+       },
+       {
+        "title": "1_Ceres",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "55_Cancri_c",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.670157089287524,
+      "label": 0.9,
+      "train": 0.55,
+      "held": 0.05
+     }
+    },
+    "between": {
+     "5": 0.9333333333333332,
+     "20": 0.6544927536231884
+    }
+   },
+   "Andromeda_Galaxy": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Universe",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Planetary_nebula",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Milky_Way",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble_Deep_Field",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "H_II_region",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.6047619047619047,
+      "label": 1.0,
+      "train": 0.8,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Universe",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Planetary_nebula",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Milky_Way",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble_Deep_Field",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "H_II_region",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Herbig-Haro_object",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Red_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Binary_star",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Redshift",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Star",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble's_law",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Red_dwarf",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Astronomy",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Galaxy",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Spherical_aberration",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble_Space_Telescope",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Globular_cluster",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Crab_Nebula",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Radio_telescope",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Cosmic_microwave_background_radiation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.7041370223978919,
+      "label": 1.0,
+      "train": 0.35,
+      "held": 0.15
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Planetary_nebula",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "H_II_region",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Sirius",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Redshift",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Universe",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.4404761904761904,
+      "label": 1.0,
+      "train": 1.0,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Planetary_nebula",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "H_II_region",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Sirius",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Redshift",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Universe",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Milky_Way",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Red_dwarf",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble_Deep_Field",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Hubble_Space_Telescope",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Binary_star",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "55_Cancri",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Spherical_aberration",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Red_giant",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Star",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Herbig-Haro_object",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Planet",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Orion_Nebula",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "47_Ursae_Majoris_b",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "16_Cygni",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Astronomy",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       }
+      ],
+      "seed_jaccard": 0.5774458070110244,
+      "label": 1.0,
+      "train": 0.4,
+      "held": 0.05
+     }
+    },
+    "between": {
+     "5": 0.376984126984127,
+     "20": 0.5516809116809116
+    }
+   },
+   "Special_relativity": {
+    "DeepWalk": {
+     "5": {
+      "items": [
+       {
+        "title": "Luminiferous_aether",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Black_hole",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "String_theory",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       }
+      ],
+      "seed_jaccard": 0.47579365079365077,
+      "label": 1.0,
+      "train": 1.0,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Luminiferous_aether",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Black_hole",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "String_theory",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Albert_Einstein",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 3
+       },
+       {
+        "title": "Wave\u2013particle_duality",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Redshift",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Hubble's_law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Quantum_mechanics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Cosmic_inflation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Physical_paradox",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Photon",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "James_Clerk_Maxwell",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Maxwell's_equations",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Speed_of_light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Physics",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Renormalization",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Electric_charge",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Casimir_effect",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       }
+      ],
+      "seed_jaccard": 0.7237568228872576,
+      "label": 0.9,
+      "train": 0.65,
+      "held": 0.15
+     }
+    },
+    "node2vec": {
+     "5": {
+      "items": [
+       {
+        "title": "Hubble's_law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Luminiferous_aether",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Physical_paradox",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 3
+       },
+       {
+        "title": "Quantum_mechanics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       }
+      ],
+      "seed_jaccard": 0.4583333333333333,
+      "label": 1.0,
+      "train": 1.0,
+      "held": 0.0
+     },
+     "20": {
+      "items": [
+       {
+        "title": "Hubble's_law",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Luminiferous_aether",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Introduction_to_special_relativity",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Physical_paradox",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Quantum_mechanics",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Redshift",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Black_hole",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "James_Clerk_Maxwell",
+        "train": true,
+        "held_out": false,
+        "label": false,
+        "seeds": 5
+       },
+       {
+        "title": "Wave\u2013particle_duality",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Maxwell's_equations",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Speed_of_light",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Electromagnetic_radiation",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Cosmic_inflation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Metric_expansion_of_space",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "String_theory",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Ununpentium",
+        "train": true,
+        "held_out": false,
+        "label": true,
+        "seeds": 2
+       },
+       {
+        "title": "Electric_field",
+        "train": false,
+        "held_out": true,
+        "label": true,
+        "seeds": 5
+       },
+       {
+        "title": "Atom",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 1
+       },
+       {
+        "title": "Cosmic_microwave_background_radiation",
+        "train": false,
+        "held_out": false,
+        "label": true,
+        "seeds": 4
+       },
+       {
+        "title": "Albert_Einstein",
+        "train": false,
+        "held_out": true,
+        "label": false,
+        "seeds": 3
+       }
+      ],
+      "seed_jaccard": 0.7108036890645585,
+      "label": 0.9,
+      "train": 0.7,
+      "held": 0.15
+     }
+    },
+    "between": {
+     "5": 0.40476190476190477,
+     "20": 0.7006060606060607
+    }
+   }
+  }
+ },
+ "selection": {
+  "small": {
+   "selected": "n2v_p2_q0.5",
+   "val_best": 0.28107617993350587,
+   "val_uniform": 0.25600888055535637,
+   "val_sd_selected": 0.009890972895652411,
+   "val_sd_median": 0.006552805714924627,
+   "val_range": 0.07307828616932122,
+   "spearman_val_test": 0.8623076923076922,
+   "spearman_val_lift": 0.07424504849784962,
+   "oracle_test": "n2v_p4_q0.5",
+   "oracle_test_score": 0.3528886633157886,
+   "selected_test_tuneseeds": 0.3489993647534666,
+   "uniform_test_tuneseeds": 0.3469853003118592,
+   "q_lt1_mean": 0.2697631037373629,
+   "q_gt1_mean": 0.2406747733259536,
+   "p_lt1_mean": 0.24467356363144574,
+   "p_gt1_mean": 0.2655790327138072
+  },
+  "large": {
+   "selected": "n2v_p2_q0.5",
+   "val_best": 0.11365043215838262,
+   "val_uniform": 0.10873200969212975,
+   "val_sd_selected": 0.0015112942507398898,
+   "val_sd_median": 0.0013122384795890346,
+   "val_range": 0.021731890715334573,
+   "spearman_val_test": 0.9653846153846154,
+   "spearman_val_lift": -0.10923076923076921,
+   "oracle_test": "n2v_p2_q0.5",
+   "oracle_test_score": 0.15007812464802953,
+   "selected_test_tuneseeds": 0.15007812464802953,
+   "uniform_test_tuneseeds": 0.1460245273294449,
+   "q_lt1_mean": 0.1107446130344111,
+   "q_gt1_mean": 0.10240803046733786,
+   "p_lt1_mean": 0.10406628133748111,
+   "p_gt1_mean": 0.1096374527326243
+  }
+ },
+ "subsampling": {
+  "small": {
+   "n": 222,
+   "kept_share": 0.6093286557719868,
+   "nodes_downsampled": 0.5900900900900901,
+   "tokens": 177600,
+   "effective_tokens": 108216.76926510484,
+   "max_f": 0.027737752161383286
+  },
+  "large": {
+   "n": 4589,
+   "kept_share": 0.9878445690409527,
+   "nodes_downsampled": 0.003486598387448246,
+   "tokens": 3671200,
+   "effective_tokens": 3626574.9818631453,
+   "max_f": 0.0076635288438329716
+  },
+  "token_ratio": 20.67117117117117,
+  "effective_ratio": 33.512135009121515
+ }
+}
