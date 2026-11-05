@@ -1,0 +1,769 @@
+{
+ "graph": "small",
+ "config": "n2v_p0.25_q0.25",
+ "params": {
+  "d": 128,
+  "l": 80,
+  "r": 10,
+  "w": 10,
+  "epochs": 5,
+  "sample": 0.001,
+  "algo": "n2v",
+  "p": 0.25,
+  "q": 0.25,
+  "hs": 0,
+  "negative": 5
+ },
+ "seed": 10,
+ "split": 0,
+ "workers": 1,
+ "machine": "pace-ice-AMD-EPYC-7513-32-Core-Processor-grid",
+ "commits": {
+  "deepwalk": "6e6dff245e4692e9bea47e9017c1034e51afbf29",
+  "node2vec": "872af473836786688707157d10ad2b7db3c6423d"
+ },
+ "gensim": "4.3.3",
+ "python": "3.11.9",
+ "hashseed": "0",
+ "timings": {
+  "precompute_s": 0.14400653701159172,
+  "walk_s": 0.7558081439929083,
+  "train_s": 2.8970321450033225,
+  "total_s": 3.800853061984526
+ },
+ "latency": {
+  "mean_ms": 0.047890640853438526,
+  "p95_ms": 0.0550610086065717,
+  "n": 200,
+  "k": 20
+ },
+ "test": {
+  "n_nodes": 175,
+  "metrics": {
+   "1": {
+    "p": 0.29714285714285715,
+    "r": 0.07470795342223914,
+    "ndcg": 0.29714285714285715,
+    "hit": 0.29714285714285715,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.16114285714285712,
+    "r": 0.20848082021014352,
+    "ndcg": 0.23584750415961983,
+    "hit": 0.5085714285714286,
+    "cap": 0.6571428571428571
+   },
+   "10": {
+    "p": 0.12857142857142856,
+    "r": 0.3200451915113569,
+    "ndcg": 0.26630163429956505,
+    "hit": 0.6742857142857143,
+    "cap": 0.41885714285714276
+   },
+   "20": {
+    "p": 0.09942857142857146,
+    "r": 0.4577055409085485,
+    "ndcg": 0.3157328301789494,
+    "hit": 0.8171428571428572,
+    "cap": 0.22428571428571428
+   },
+   "50": {
+    "p": 0.0657142857142857,
+    "r": 0.7424625658385058,
+    "ndcg": 0.401456625203002,
+    "hit": 0.9485714285714286,
+    "cap": 0.09051428571428571
+   }
+  }
+ },
+ "val": {
+  "n_nodes": 152,
+  "metrics": {
+   "1": {
+    "p": 0.18421052631578946,
+    "r": 0.07456140350877193,
+    "ndcg": 0.18421052631578946,
+    "hit": 0.18421052631578946,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.0881578947368421,
+    "r": 0.19699817726133514,
+    "ndcg": 0.17554659887525637,
+    "hit": 0.3684210526315789,
+    "cap": 0.4657894736842106
+   },
+   "10": {
+    "p": 0.07236842105263158,
+    "r": 0.30023591174906966,
+    "ndcg": 0.21589634280563685,
+    "hit": 0.5197368421052632,
+    "cap": 0.2598684210526316
+   },
+   "20": {
+    "p": 0.05559210526315789,
+    "r": 0.4309827599301283,
+    "ndcg": 0.2593227196813937,
+    "hit": 0.625,
+    "cap": 0.13026315789473686
+   },
+   "50": {
+    "p": 0.03644736842105263,
+    "r": 0.6965087909166856,
+    "ndcg": 0.3286449842313589,
+    "hit": 0.8486842105263158,
+    "cap": 0.05210526315789474
+   }
+  }
+ },
+ "label_literal": {
+  "n_nodes": 222,
+  "base": 0.31551913904855083,
+  "agree": {
+   "1": 0.7837837837837838,
+   "5": 0.7297297297297297,
+   "10": 0.6936936936936937,
+   "20": 0.6412162162162163,
+   "50": 0.5497297297297298
+  },
+  "lift": {
+   "1": 2.4841085271317827,
+   "5": 2.3127906976744184,
+   "10": 2.198578811369509,
+   "20": 2.0322577519379847,
+   "50": 1.7423023255813954
+  }
+ },
+ "label_novel": {
+  "n_nodes": 222,
+  "base": 0.31551913904855083,
+  "agree": {
+   "1": 0.7072072072072072,
+   "5": 0.6657657657657658,
+   "10": 0.622072072072072,
+   "20": 0.5842342342342342,
+   "50": 0.5056756756756757
+  },
+  "lift": {
+   "1": 2.24140826873385,
+   "5": 2.1100645994832044,
+   "10": 1.9715826873385012,
+   "20": 1.8516602067183459,
+   "50": 1.6026782945736435
+  }
+ },
+ "lists": {
+  "HD_28185": [
+   {
+    "title": "HD_28185_b",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Extrasolar_planet",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "HD_209458_b",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "16_Cygni_Bb",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Planetary_habitability",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Solar_System",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Gas_giant",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Mars",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Gliese_876_c",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "47_Ursae_Majoris_c",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "HD_217107_c",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Sun",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "47_Ursae_Majoris",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Proxima_Centauri",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "16_Cygni",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Mu_Arae",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Definition_of_planet",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Upsilon_Andromedae_b",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Gliese_876_b",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Red_dwarf",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ],
+  "Integrated_circuit": [
+   {
+    "title": "Bluetooth",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Radio_frequency",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Optical_telescope",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Light",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Chromatic_aberration",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Photon",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Optical_microscope",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Electromagnetic_radiation",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Nuclear_fission",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hubble's_law",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Semiconductor_device",
+    "train": false,
+    "held_out": true,
+    "label": true
+   },
+   {
+    "title": "Inductance",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Wave",
+    "train": false,
+    "held_out": true,
+    "label": false
+   },
+   {
+    "title": "Electric_field",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cosmic_inflation",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Maxwell's_equations",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Capacitance",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Semiconductor",
+    "train": false,
+    "held_out": true,
+    "label": true
+   },
+   {
+    "title": "Physics",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Force",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "90377_Sedna": [
+   {
+    "title": "Scattered_disc",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Eris_(dwarf_planet)",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Kuiper_belt",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Pluto",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Aberration_of_light",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "1_Ceres",
+    "train": false,
+    "held_out": true,
+    "label": true
+   },
+   {
+    "title": "Definition_of_planet",
+    "train": false,
+    "held_out": true,
+    "label": false
+   },
+   {
+    "title": "Temperate",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Asteroid",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "55_Cancri",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Ceres_(dwarf_planet)",
+    "train": false,
+    "held_out": true,
+    "label": true
+   },
+   {
+    "title": "Venus",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Upsilon_Andromedae",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Phoenix_(spacecraft)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "4_Vesta",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Roche_limit",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Sun",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Upsilon_Andromedae_c",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Exploration_of_Mars",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Timeline_of_discovery_of_solar_system_planets_and_their_natural_satellites",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ],
+  "Andromeda_Galaxy": [
+   {
+    "title": "Galaxy",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Comet_Hale-Bopp",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "PSR_B1620-26c",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Universe",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Globular_cluster",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Algol",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Fermi_paradox",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Upsilon_Andromedae_b",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cat's_Eye_Nebula",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Planetary_nebula",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Radio_telescope",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Pleiades_(star_cluster)",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Shenzhou_6",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Astronomy",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Extraterrestrial_life",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Sirius",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Open_cluster",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "European_Space_Agency",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Saturn",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Black_hole",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ],
+  "Special_relativity": [
+   {
+    "title": "Introduction_to_special_relativity",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Wave\u2013particle_duality",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Physics",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Quantum_mechanics",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Time",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Hubble's_law",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Luminiferous_aether",
+    "train": false,
+    "held_out": true,
+    "label": false
+   },
+   {
+    "title": "Big_Bang",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Entropy",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Physical_paradox",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Electromagnetic_radiation",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Sound",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Black_hole",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Schr\u00f6dinger_equation",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Hawking_radiation",
+    "train": false,
+    "held_out": true,
+    "label": false
+   },
+   {
+    "title": "Renormalization",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "String_theory",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Metric_expansion_of_space",
+    "train": false,
+    "held_out": true,
+    "label": false
+   },
+   {
+    "title": "Matter",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Semiconductor_device",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ]
+ },
+ "peak_rss_mb": 118.056
+}

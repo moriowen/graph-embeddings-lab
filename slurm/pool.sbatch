@@ -5,7 +5,6 @@
 #   sbatch slurm/pool.sbatch slurm/jobs/all.txt
 #SBATCH -J hw5-pool
 #SBATCH -p ice-cpu
-#SBATCH --constraint=gold6226
 #SBATCH -c 8
 #SBATCH --mem=48G
 #SBATCH -t 06:00:00
@@ -15,7 +14,8 @@ set -uo pipefail
 cd "$SLURM_SUBMIT_DIR"
 source .venv-ice/bin/activate
 export PYTHONPATH="$PWD" PYTHONHASHSEED=0 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
-export BDS_MACHINE="pace-ice-gold6226-grid"
+# Any CPU model is fine for quality; the record says which one. Timing tables never use these records.
+export BDS_MACHINE="pace-ice-$(lscpu | sed -nE 's/^Model name: +//p' | tr -s ' ' '-')-grid"
 mkdir -p slurm/claims
 list="$1"
 echo "node $(hostname) cores ${SLURM_CPUS_PER_TASK} start $(date)"

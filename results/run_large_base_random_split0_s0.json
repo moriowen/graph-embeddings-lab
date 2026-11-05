@@ -1,0 +1,759 @@
+{
+ "graph": "large",
+ "config": "base_random",
+ "params": {
+  "algo": "baseline"
+ },
+ "seed": 0,
+ "split": 0,
+ "workers": 1,
+ "machine": "pace-ice-Intel(R)-Xeon(R)-Gold-6226-CPU-@-2.70GHz-grid",
+ "commits": {
+  "deepwalk": "6e6dff245e4692e9bea47e9017c1034e51afbf29",
+  "node2vec": "872af473836786688707157d10ad2b7db3c6423d"
+ },
+ "gensim": "4.3.3",
+ "python": "3.11.9",
+ "hashseed": "0",
+ "timings": {
+  "precompute_s": 0.0,
+  "walk_s": 0.0,
+  "train_s": 1.0338990250602365e-05,
+  "total_s": 1.1455995263531804e-05
+ },
+ "latency": {
+  "mean_ms": 0.20086813427042216,
+  "p95_ms": 0.2272038589580916,
+  "n": 200,
+  "k": 20
+ },
+ "test": {
+  "n_nodes": 4083,
+  "metrics": {
+   "1": {
+    "p": 0.0029390154298310064,
+    "r": 0.00037468661694057957,
+    "ndcg": 0.0029390154298310064,
+    "hit": 0.0029390154298310064,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.0024491795248591723,
+    "r": 0.0012160711474470329,
+    "ndcg": 0.0027868606707337346,
+    "hit": 0.01224589762429586,
+    "cap": 0.7985794758755816
+   },
+   "10": {
+    "p": 0.0023512123438648056,
+    "r": 0.0021362138808447687,
+    "ndcg": 0.002924180254413868,
+    "hit": 0.02302228753367622,
+    "cap": 0.6127847171197649
+   },
+   "20": {
+    "p": 0.0023634582414891014,
+    "r": 0.004441120275657106,
+    "ndcg": 0.0036148985063070337,
+    "hit": 0.045309821209894685,
+    "cap": 0.406000489835905
+   },
+   "50": {
+    "p": 0.0023855008572128337,
+    "r": 0.011014013792295121,
+    "ndcg": 0.005865923429636587,
+    "hit": 0.10041636051922606,
+    "cap": 0.19370560862111194
+   }
+  }
+ },
+ "val": {
+  "n_nodes": 3905,
+  "metrics": {
+   "1": {
+    "p": 0.001024327784891165,
+    "r": 0.00029342175821049063,
+    "ndcg": 0.001024327784891165,
+    "hit": 0.001024327784891165,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.001024327784891165,
+    "r": 0.0014179477030014413,
+    "ndcg": 0.0014933435237074774,
+    "hit": 0.005121638924455826,
+    "cap": 0.6525992317541613
+   },
+   "10": {
+    "p": 0.0011779769526248402,
+    "r": 0.002273770924193345,
+    "ndcg": 0.0018215778658687443,
+    "hit": 0.0117797695262484,
+    "cap": 0.4302688860435339
+   },
+   "20": {
+    "p": 0.0013060179257362357,
+    "r": 0.004693664362608645,
+    "ndcg": 0.0026702743574774797,
+    "hit": 0.024839948783610757,
+    "cap": 0.2483226632522407
+   },
+   "50": {
+    "p": 0.001208706786171575,
+    "r": 0.011270224293816366,
+    "ndcg": 0.0045285609414013545,
+    "hit": 0.05608194622279129,
+    "cap": 0.1071088348271447
+   }
+  }
+ },
+ "label_literal": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.1676111595466434,
+   "5": 0.16046207497820403,
+   "10": 0.15878378378378377,
+   "20": 0.15976460331299042,
+   "50": 0.15983870967741937
+  },
+  "lift": {
+   "1": 1.0416805432536167,
+   "5": 0.9972499557130204,
+   "10": 0.9868196043696486,
+   "20": 0.9929152642456451,
+   "50": 0.9933758252140538
+  }
+ },
+ "label_novel": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.16652136006974716,
+   "5": 0.16163905841325196,
+   "10": 0.15797733217088056,
+   "20": 0.15903443766346992,
+   "50": 0.15859197907585007
+  },
+  "lift": {
+   "1": 1.034907587835843,
+   "5": 1.004564747564216,
+   "10": 0.981807617360496,
+   "20": 0.9883773841157366,
+   "50": 0.9856275642161206
+  }
+ },
+ "lists": {
+  "HD_28185": [
+   {
+    "title": "Gorilla",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Taoism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Malawi",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Aleksandr_Vasilevsky",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Multiculturalism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ancient_Egypt",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Mexico_City",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Wasp",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "David_Helvarg",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Augusta,_Lady_Gregory",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Business",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Pochard",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "S\u00e3o_Paulo",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Christian_monasticism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Corinthian_War",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Welsh_law",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Gustav_Holst",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Science",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Health",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Krypton",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ],
+  "Integrated_circuit": [
+   {
+    "title": "Cookiecutter_shark",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Vestigial_structure",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "History_of_Cape_Colony_from_1806_to_1870",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Mount_Kilimanjaro",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "WorkChoices",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Names_of_God_in_Judaism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Washington_Metro",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Michael_Woodruff",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Adelaide",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Anteater",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "1980_eruption_of_Mount_St._Helens",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Steel",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Behavioral_finance",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Bat",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Osama_bin_Laden",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Benito_Mussolini",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Dundee_United_F.C.",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Gerald_Ford",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Civilization_(computer_game)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Papua_New_Guinea",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "90377_Sedna": [
+   {
+    "title": "Fyodor_Dostoevsky",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Muhammad_Iqbal",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Sparrowhawk",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Berber_languages",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Earwax",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Louis_Jordan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Battle_of_Marathon",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Billie_Holiday",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Rule_of_St_Benedict",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Coconut_crab",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "ECHELON",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Abhidhamma_Pitaka",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Turks_and_Caicos_Islands",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Sequoia",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Poultry",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Carbon",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "United_States_Constitution",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Warsaw_Uprising_(1794)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Conflict",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Pop_Idol",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Andromeda_Galaxy": [
+   {
+    "title": "Peace",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Red_Panda",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Pennsylvania_Railroad",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "16th_century",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Overseas_Railroad",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Gremlins",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Cultural_identity",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Igneous_rock",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "U.S._state",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "The_Last_Supper_(Leonardo)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Corporation",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Mount_Nyiragongo",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Craton",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Caratacus",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "History_of_democracy",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "First_Transcontinental_Railroad",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "David_Copperfield_(novel)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Caribbean_Sea",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Metamorphic_rock",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "William_Tecumseh_Sherman",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Special_relativity": [
+   {
+    "title": "William_Thomson,_1st_Baron_Kelvin",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Autumn",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Invertebrate",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Shoe_polish",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Still_Game",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "White's_Tree_Frog",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Scotch_College,_Perth",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Intel_Corporation",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Cyclone_Rosita",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "15th_Marine_Expeditionary_Unit",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Montenegro",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Human",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Titanosauridae",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Brian_Close",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Edward_Jenner",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Thorium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "William_I_of_England",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Space_Race",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ichthyosaur",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Revised_Standard_Version",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ]
+ },
+ "peak_rss_mb": 203.352
+}

@@ -1,0 +1,759 @@
+{
+ "graph": "large",
+ "config": "base_popularity",
+ "params": {
+  "algo": "baseline"
+ },
+ "seed": 2,
+ "split": 0,
+ "workers": 1,
+ "machine": "pace-ice-Intel(R)-Xeon(R)-Gold-6226-CPU-@-2.70GHz-grid",
+ "commits": {
+  "deepwalk": "6e6dff245e4692e9bea47e9017c1034e51afbf29",
+  "node2vec": "872af473836786688707157d10ad2b7db3c6423d"
+ },
+ "gensim": "4.3.3",
+ "python": "3.11.9",
+ "hashseed": "0",
+ "timings": {
+  "precompute_s": 0.0,
+  "walk_s": 0.0,
+  "train_s": 0.006748928019078448,
+  "total_s": 0.0067509160144254565
+ },
+ "latency": {
+  "mean_ms": 0.16517561001819558,
+  "p95_ms": 0.17428698338335374,
+  "n": 200,
+  "k": 20
+ },
+ "test": {
+  "n_nodes": 4083,
+  "metrics": {
+   "1": {
+    "p": 0.12123438648052902,
+    "r": 0.015870203054157914,
+    "ndcg": 0.12123438648052902,
+    "hit": 0.12123438648052902,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.0724467303453343,
+    "r": 0.046686985190378665,
+    "ndcg": 0.08829987724427835,
+    "hit": 0.27357335292676954,
+    "cap": 0.7985794758755816
+   },
+   "10": {
+    "p": 0.05508204751408278,
+    "r": 0.07038732185528636,
+    "ndcg": 0.08451863586916036,
+    "hit": 0.36884643644379134,
+    "cap": 0.6127847171197649
+   },
+   "20": {
+    "p": 0.04240754347293658,
+    "r": 0.11130908142136942,
+    "ndcg": 0.09256189227140327,
+    "hit": 0.4842027920646583,
+    "cap": 0.406000489835905
+   },
+   "50": {
+    "p": 0.029125642909625278,
+    "r": 0.17449960734393935,
+    "ndcg": 0.1120494228666307,
+    "hit": 0.6157237325495959,
+    "cap": 0.19370560862111194
+   }
+  }
+ },
+ "val": {
+  "n_nodes": 3905,
+  "metrics": {
+   "1": {
+    "p": 0.053265044814340586,
+    "r": 0.01516808370826548,
+    "ndcg": 0.053265044814340586,
+    "hit": 0.053265044814340586,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.03272727272727273,
+    "r": 0.03932747097323734,
+    "ndcg": 0.04669132765819864,
+    "hit": 0.1475032010243278,
+    "cap": 0.6525992317541613
+   },
+   "10": {
+    "p": 0.025198463508322666,
+    "r": 0.05822158346069638,
+    "ndcg": 0.050852369384186594,
+    "hit": 0.2115236875800256,
+    "cap": 0.4302688860435339
+   },
+   "20": {
+    "p": 0.020358514724711906,
+    "r": 0.10028028316773964,
+    "ndcg": 0.06359245045307904,
+    "hit": 0.31062740076824585,
+    "cap": 0.2483226632522407
+   },
+   "50": {
+    "p": 0.014099871959026887,
+    "r": 0.1580631882247232,
+    "ndcg": 0.08070105418367492,
+    "hit": 0.43585147247119077,
+    "cap": 0.1071088348271447
+   }
+  }
+ },
+ "label_literal": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.23169136878814298,
+   "5": 0.23169136878814298,
+   "10": 0.2009372275501308,
+   "20": 0.21700087183958156,
+   "50": 0.20217088055797733
+  },
+  "lift": {
+   "1": 1.4399303218187185,
+   "5": 1.4399303218187185,
+   "10": 1.248797519929141,
+   "20": 1.3486308827871274,
+   "50": 1.256464505462061
+  }
+ },
+ "label_novel": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.23147340889276374,
+   "5": 0.22231909328683522,
+   "10": 0.20357454228421973,
+   "20": 0.19948779424585877,
+   "50": 0.19478204010462077
+  },
+  "lift": {
+   "1": 1.4385757307351639,
+   "5": 1.3816829052258637,
+   "10": 1.2651880720401536,
+   "20": 1.2397894892235017,
+   "50": 1.2105438677295544
+  }
+ },
+ "lists": {
+  "HD_28185": [
+   {
+    "title": "United_States",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "United_Kingdom",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Europe",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "England",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Germany",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "World_War_II",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Japan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "English_language",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "London",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "India",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Canada",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Italy",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Australia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Spain",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Scientific_classification",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "China",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Animal",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Russia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Integrated_circuit": [
+   {
+    "title": "United_States",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "United_Kingdom",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Europe",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "England",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Germany",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "World_War_II",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Japan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "English_language",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "London",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "India",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Canada",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Italy",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Australia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Spain",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Scientific_classification",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "China",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Animal",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Russia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "90377_Sedna": [
+   {
+    "title": "United_States",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "United_Kingdom",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Europe",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "England",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Germany",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "World_War_II",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Japan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "English_language",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "London",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "India",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Canada",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Italy",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Australia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Spain",
+    "train": true,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Scientific_classification",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "China",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Animal",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Russia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Andromeda_Galaxy": [
+   {
+    "title": "United_States",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "United_Kingdom",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Europe",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "England",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Germany",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "World_War_II",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Japan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "English_language",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "London",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "India",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Canada",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Italy",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Australia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Spain",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Scientific_classification",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "China",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Animal",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Russia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Special_relativity": [
+   {
+    "title": "United_States",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "United_Kingdom",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Europe",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "England",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Germany",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "World_War_II",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Japan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "English_language",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "London",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "India",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Canada",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Italy",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Australia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Spain",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Scientific_classification",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "China",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Animal",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Russia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ]
+ },
+ "peak_rss_mb": 200.196
+}

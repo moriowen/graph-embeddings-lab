@@ -1,0 +1,759 @@
+{
+ "graph": "large",
+ "config": "base_random",
+ "params": {
+  "algo": "baseline"
+ },
+ "seed": 2,
+ "split": 0,
+ "workers": 1,
+ "machine": "pace-ice-Intel(R)-Xeon(R)-Gold-6226-CPU-@-2.70GHz-grid",
+ "commits": {
+  "deepwalk": "6e6dff245e4692e9bea47e9017c1034e51afbf29",
+  "node2vec": "872af473836786688707157d10ad2b7db3c6423d"
+ },
+ "gensim": "4.3.3",
+ "python": "3.11.9",
+ "hashseed": "0",
+ "timings": {
+  "precompute_s": 0.0,
+  "walk_s": 0.0,
+  "train_s": 1.1207011993974447e-05,
+  "total_s": 1.2559990864247084e-05
+ },
+ "latency": {
+  "mean_ms": 0.20166819580481388,
+  "p95_ms": 0.22966605029068887,
+  "n": 200,
+  "k": 20
+ },
+ "test": {
+  "n_nodes": 4083,
+  "metrics": {
+   "1": {
+    "p": 0.002204261572373255,
+    "r": 0.0002815778530052179,
+    "ndcg": 0.002204261572373255,
+    "hit": 0.002204261572373255,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.0027920646583394562,
+    "r": 0.0015491041545216539,
+    "ndcg": 0.002753286495114173,
+    "hit": 0.013960323291697281,
+    "cap": 0.7985794758755816
+   },
+   "10": {
+    "p": 0.0026696056820964976,
+    "r": 0.003083855963939615,
+    "ndcg": 0.0032228084285117415,
+    "hit": 0.02645113886847906,
+    "cap": 0.6127847171197649
+   },
+   "20": {
+    "p": 0.0025471467058535394,
+    "r": 0.005657705074694374,
+    "ndcg": 0.004081799426362204,
+    "hit": 0.04898359049718344,
+    "cap": 0.406000489835905
+   },
+   "50": {
+    "p": 0.002361009061964242,
+    "r": 0.011984180253354333,
+    "ndcg": 0.006247671960148326,
+    "hit": 0.10213078618662748,
+    "cap": 0.19370560862111194
+   }
+  }
+ },
+ "val": {
+  "n_nodes": 3905,
+  "metrics": {
+   "1": {
+    "p": 0.001024327784891165,
+    "r": 0.0001589333983700181,
+    "ndcg": 0.001024327784891165,
+    "hit": 0.001024327784891165,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.001382842509603073,
+    "r": 0.0008754577121662821,
+    "ndcg": 0.0013369282354936233,
+    "hit": 0.006914212548015365,
+    "cap": 0.6525992317541613
+   },
+   "10": {
+    "p": 0.0010499359795134442,
+    "r": 0.0018168170469483541,
+    "ndcg": 0.0015014446412896473,
+    "hit": 0.010243277848911651,
+    "cap": 0.4302688860435339
+   },
+   "20": {
+    "p": 0.001113956466069142,
+    "r": 0.004030379816815457,
+    "ndcg": 0.002251060068765113,
+    "hit": 0.02176696542893726,
+    "cap": 0.2483226632522407
+   },
+   "50": {
+    "p": 0.0012240717029449425,
+    "r": 0.01132787705926343,
+    "ndcg": 0.004435575474607013,
+    "hit": 0.05761843790012804,
+    "cap": 0.1071088348271447
+   }
+  }
+ },
+ "label_literal": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.16129032258064516,
+   "5": 0.1598517872711421,
+   "10": 0.160178727114211,
+   "20": 0.16076721883173498,
+   "50": 0.16155187445510027
+  },
+  "lift": {
+   "1": 1.0023974018305284,
+   "5": 0.993457100679067,
+   "10": 0.9954889873043993,
+   "20": 0.9991463832299972,
+   "50": 1.0040229111307943
+  }
+ },
+ "label_novel": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.15736704446381866,
+   "5": 0.16033129904097645,
+   "10": 0.1604402789886661,
+   "20": 0.16003705318221448,
+   "50": 0.16029206625980819
+  },
+  "lift": {
+   "1": 0.9780147623265427,
+   "5": 0.9964372010628875,
+   "10": 0.9971144966046651,
+   "20": 0.9946085031000886,
+   "50": 0.9961933746678476
+  }
+ },
+ "lists": {
+  "HD_28185": [
+   {
+    "title": "Nelson_Mandela",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Niger_River",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "J._R._R._Tolkien",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "July_2006_Java_earthquake",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "The_Mismeasure_of_Man",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "PSR_B1620-26c",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cocoa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Pat_Cash",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Bluegrass_music",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "MINI_(BMW)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Dik-dik",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Red_Sea",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ancient_Egypt",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Vitus_Bering",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Loch",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "47_Ursae_Majoris_b",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Arctic_Circle",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Lake_Vostok",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hippocrates",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "J\u00f3rv\u00edk",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Integrated_circuit": [
+   {
+    "title": "Romeo_and_Juliet",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Argan",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "El_Salvador",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "September_11,_2001_attacks",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Control_car_(rail)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Graniteville_train_disaster",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Caravaggio",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Raney_nickel",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Global_city",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Attack_on_Pearl_Harbor",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Concorde",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Amur",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "5th_century",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "James_D._Watson",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Charles_Babbage",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Photon",
+    "train": true,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Porgy_and_Bess",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Organization",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Gaborone",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Gentoo_penguin",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ],
+  "90377_Sedna": [
+   {
+    "title": "Vertebrate",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Owl",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Computer_programming",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Manganese",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Fire",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Gas_metal_arc_welding",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Rice",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hawk",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "List_of_Test_cricket_triple_centuries",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Timur",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Demand_Note",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Kitsch",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Marseille",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Police",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "List_of_members_of_the_Commonwealth_of_Nations_by_date_joined",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Mahatma_Gandhi",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Netherlands_Antilles",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Levee_failures_in_Greater_New_Orleans,_2005",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Islam",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "3rd_century",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Andromeda_Galaxy": [
+   {
+    "title": "Ann_Arbor,_Michigan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Siege",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Indira_Gandhi",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Wasabi",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Thorium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cyprus",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Poetry_of_the_United_States",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Recycling",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Weimar_Republic",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Jackie_Robinson",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Heard_Island_and_McDonald_Islands",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Canada_Goose",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Mbabane",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Naked_Mole_Rat",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "E._P._Wigner",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Slovenia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ecuador",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Podcasting",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Modernist_poetry_in_English",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Special_relativity": [
+   {
+    "title": "Continental_crust",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "History_of_painting",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Michael_Woodruff",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Amtrak",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Horn_of_Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Earthquake",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Davy_Jones'_Locker",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Tajikistan",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Animation",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Tennis_Masters_Cup",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Blitzkrieg",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Tiger_shark",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Spix's_Macaw",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Socialism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Sakurajima",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Myanmar",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ethnic_group",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Phineas_Gage",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Terrorism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "New_Zealand",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ]
+ },
+ "peak_rss_mb": 203.352
+}

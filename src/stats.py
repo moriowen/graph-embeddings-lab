@@ -44,6 +44,8 @@ def quality(runs):
     """graph -> config -> split -> metric mean +- sd over seeds."""
     g = defaultdict(list)
     for r in runs:
+        if r["seed"] in TUNE_SEEDS:   # selection runs never appear in a reported row
+            continue
         g[(r["graph"], r["config"], r["split"])].append(r)
     out = defaultdict(lambda: defaultdict(dict))
     for (gr, c, sp), rs in g.items():
@@ -81,16 +83,21 @@ def select_pq(runs):
     return out
 
 
-def per_node(graph, config, split=0, seeds=SEEDS, key="ndcg20"):
-    a = []
+def seed_means(graph, config, split=0, seeds=SEEDS, key="ndcg20"):
+    """Per-seed arrays over the same nodes, plus the node index."""
+    a, idx = [], None
     q = "test_q" if key.startswith("ndcg") else "label_q"
-    idx = None
     for s in seeds:
         p = NODES / f"{graph}_{config}_split{split}_s{s}.npz"
         if p.exists():
             with np.load(p) as z:
                 a.append(z[key].astype(float))
                 idx = z[q]
+    return a, idx
+
+
+def per_node(graph, config, split=0, seeds=SEEDS, key="ndcg20"):
+    a, idx = seed_means(graph, config, split, seeds, key)
     return (np.mean(a, axis=0), idx, len(a)) if a else (None, None, 0)
 
 
@@ -104,7 +111,13 @@ def paired(graph, c1, c2, key="ndcg20", split=0, n_boot=2000):
     rng = np.random.default_rng(6220)
     boots = d[rng.integers(0, len(d), (n_boot, len(d)))].mean(1)
     nz = d[d != 0]
-    return dict(a=c1, b=c2, mean_a=float(a.mean()), mean_b=float(b.mean()), diff=float(d.mean()),
+    # A CI over nodes treats the seed-averaged embeddings as fixed. These show the noise it leaves out: the spread of
+    # the graph-level score across seeds, and the difference in units of its standard error (Welch).
+    sa = np.array([x.mean() for x in seed_means(graph, c1, split, key=key)[0]])
+    sb = np.array([x.mean() for x in seed_means(graph, c2, split, key=key)[0]])
+    se = float(np.sqrt(sa.var(ddof=1) / len(sa) + sb.var(ddof=1) / len(sb))) if min(len(sa), len(sb)) > 1 else None
+    return dict(seed_sd_a=float(sa.std(ddof=1)) if len(sa) > 1 else None, seed_sd_b=float(sb.std(ddof=1)) if len(sb) > 1 else None,
+                seed_se_diff=se, seed_t=float(d.mean() / se) if se else None, a=c1, b=c2, mean_a=float(a.mean()), mean_b=float(b.mean()), diff=float(d.mean()),
                 ci=[float(np.percentile(boots, 2.5)), float(np.percentile(boots, 97.5))],
                 wilcoxon_p=float(wilcoxon(nz).pvalue) if len(nz) else 1.0,
                 wins=int((d > 0).sum()), losses=int((d < 0).sum()), ties=int((d == 0).sum()), n=len(d), seeds=[na, nb])

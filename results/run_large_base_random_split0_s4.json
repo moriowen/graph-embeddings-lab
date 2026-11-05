@@ -1,0 +1,759 @@
+{
+ "graph": "large",
+ "config": "base_random",
+ "params": {
+  "algo": "baseline"
+ },
+ "seed": 4,
+ "split": 0,
+ "workers": 1,
+ "machine": "pace-ice-Intel(R)-Xeon(R)-Gold-6226-CPU-@-2.70GHz-grid",
+ "commits": {
+  "deepwalk": "6e6dff245e4692e9bea47e9017c1034e51afbf29",
+  "node2vec": "872af473836786688707157d10ad2b7db3c6423d"
+ },
+ "gensim": "4.3.3",
+ "python": "3.11.9",
+ "hashseed": "0",
+ "timings": {
+  "precompute_s": 0.0,
+  "walk_s": 0.0,
+  "train_s": 1.1497002560645342e-05,
+  "total_s": 1.2736010830849409e-05
+ },
+ "latency": {
+  "mean_ms": 0.19990168933873065,
+  "p95_ms": 0.22918289905646816,
+  "n": 200,
+  "k": 20
+ },
+ "test": {
+  "n_nodes": 4083,
+  "metrics": {
+   "1": {
+    "p": 0.0019593436198873378,
+    "r": 0.00012042802185087913,
+    "ndcg": 0.0019593436198873378,
+    "hit": 0.0019593436198873378,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.0024491795248591723,
+    "r": 0.0011918635302193509,
+    "ndcg": 0.0024420299197786617,
+    "hit": 0.01224589762429586,
+    "cap": 0.7985794758755816
+   },
+   "10": {
+    "p": 0.0023267205486162137,
+    "r": 0.002776646212840992,
+    "ndcg": 0.002847485665249354,
+    "hit": 0.023267205486162134,
+    "cap": 0.6127847171197649
+   },
+   "20": {
+    "p": 0.002216507469997551,
+    "r": 0.0044197326987050365,
+    "ndcg": 0.0034236772094850356,
+    "hit": 0.04163605192260593,
+    "cap": 0.406000489835905
+   },
+   "50": {
+    "p": 0.002576536860151849,
+    "r": 0.01293237134053952,
+    "ndcg": 0.006307764731726248,
+    "hit": 0.10776389909380357,
+    "cap": 0.19370560862111194
+   }
+  }
+ },
+ "val": {
+  "n_nodes": 3905,
+  "metrics": {
+   "1": {
+    "p": 0.0015364916773367477,
+    "r": 0.0001709614897835128,
+    "ndcg": 0.0015364916773367477,
+    "hit": 0.0015364916773367477,
+    "cap": 1.0
+   },
+   "5": {
+    "p": 0.0012291933418693984,
+    "r": 0.0009170849838739373,
+    "ndcg": 0.0014577895891714312,
+    "hit": 0.006145966709346991,
+    "cap": 0.6525992317541613
+   },
+   "10": {
+    "p": 0.0008706786171574905,
+    "r": 0.0018780493579382703,
+    "ndcg": 0.0015627604852899188,
+    "hit": 0.008706786171574905,
+    "cap": 0.4302688860435339
+   },
+   "20": {
+    "p": 0.0010371318822023046,
+    "r": 0.0044816936854343665,
+    "ndcg": 0.002450659211787628,
+    "hit": 0.020486555697823303,
+    "cap": 0.2483226632522407
+   },
+   "50": {
+    "p": 0.0011062740076824584,
+    "r": 0.010083063516874248,
+    "ndcg": 0.004188330342703023,
+    "hit": 0.05096030729833547,
+    "cap": 0.1071088348271447
+   }
+  }
+ },
+ "label_literal": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.16455972101133393,
+   "5": 0.1608108108108108,
+   "10": 0.160178727114211,
+   "20": 0.1610941586748038,
+   "50": 0.1619485614646905
+  },
+  "lift": {
+   "1": 1.0227162680838502,
+   "5": 0.9994173014467079,
+   "10": 0.9954889873043993,
+   "20": 1.001178269855329,
+   "50": 1.0064882669028639
+  }
+ },
+ "label_novel": {
+  "n_nodes": 4588,
+  "base": 0.16090456967077604,
+  "agree": {
+   "1": 0.15998256320836965,
+   "5": 0.1600261551874455,
+   "10": 0.15880557977332171,
+   "20": 0.15977550130775936,
+   "50": 0.160357454228422
+  },
+  "lift": {
+   "1": 0.9942698553291999,
+   "5": 0.9945407735459109,
+   "10": 0.9869550634780042,
+   "20": 0.9929829937998228,
+   "50": 0.9965997519929142
+  }
+ },
+ "lists": {
+  "HD_28185": [
+   {
+    "title": "Elephant_bird",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Domestic_goat",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cultural_identity",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Great_comet",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Richard_Feynman",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Christianity",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Vampire_bat",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "List_of_countries",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Lord_Voldemort",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Stockholm",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Sutton_Hoo",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Scramble_for_Africa",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Craton",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Mary_Seacole",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "World_War_II",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Norwich",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Bissau",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hydrogen_peroxide",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Monty_Python",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Cook_Islands",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Integrated_circuit": [
+   {
+    "title": "Green_Woodpecker",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cider",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Britney_Spears",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Humpback_Whale",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Star_Fox__Assault",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Jonah_Lomu",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Virgil",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "M*A*S*H_(TV_series)",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Communism",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Bangkok",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Sparrow",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "16_Cygni_Bb",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Chromatophore",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Banknote",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Giganotosaurus",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Military_history_of_France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "White's_Tree_Frog",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Entropy",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Space_Shuttle_Columbia_disaster",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Isle_of_Wight",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "90377_Sedna": [
+   {
+    "title": "Seychelles",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hardball_squash",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "English_Reformation",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Tanzania",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Lima",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Oil_reservoir",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Samuel_Taylor_Coleridge",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Katana",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Semiconductor_device",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Ferdinandea",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Bottlenose_Dolphin",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Gravitation",
+    "train": false,
+    "held_out": true,
+    "label": true
+   },
+   {
+    "title": "Weather_forecasting",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Napoleon_I_of_France",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Cataract",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Geology_of_the_Grand_Canyon_area",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hip_hop_music",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Black_Sea",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Nematode",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Aruba",
+    "train": false,
+    "held_out": false,
+    "label": false
+   }
+  ],
+  "Andromeda_Galaxy": [
+   {
+    "title": "Architecture",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Praseodymium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Juvenile_delinquency",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "16th_century",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Carl_G._Fisher",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Architecture_of_the_California_missions",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Super_Bowl_XL",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Plover",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Santa_Claus",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "American_football",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Smallpox",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Bras\u00edlia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Camarasaurus",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Xenon",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Literature",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "History_of_the_Panama_Canal",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Hawk-Eye",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Lothal",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Thomas_Gainsborough",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Osmium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ],
+  "Special_relativity": [
+   {
+    "title": "Great_white_shark",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cadmium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Canadian_Charter_of_Rights_and_Freedoms",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "The_Gambia",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "First_Council_of_Nicaea",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Renaissance",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Potassium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Financial_statements",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Boron",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Gordon_Brown",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "La_Paz",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ethiopian_Wolf",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Cassowary",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Epic_of_Gilgamesh",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Ununbium",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Fieldfare",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Manifest_Destiny",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Alamosaurus",
+    "train": false,
+    "held_out": false,
+    "label": true
+   },
+   {
+    "title": "Gangtok",
+    "train": false,
+    "held_out": false,
+    "label": false
+   },
+   {
+    "title": "Alternation_of_generations",
+    "train": false,
+    "held_out": false,
+    "label": true
+   }
+  ]
+ },
+ "peak_rss_mb": 203.352
+}
