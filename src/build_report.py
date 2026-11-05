@@ -181,7 +181,7 @@ ROUNDS_ALL = {
     "P1": ("P1", "Handout PDF, HW4 PROMPT.md and setup", "P1", "PROMPT.md: tiers, design, vetoes"),
     "P2": ("P2", "PROMPT.md, HW3 and HW4 builders, rubric skill", "P2", "Repo smoke test, PLAN.md, stop for approval"),
     "P3": ("P3", "PLAN.md, the smoke-test findings", "P3", "Plan approved; repos cleared to run; VPN on"),
-    "B": ("Build", "Approved plan, acceptance checks", "P2 continued", "Code, graphs, 512 grid runs"),
+    "B": ("Build", "Approved plan, acceptance checks", "P2 continued", f"Code, graphs, {NRUNS} grid runs"),
     "R1": ("R1", "Required rows of summary.json only", "R1", "Claims C1 to C9"),
     "R2": ("R2", "All of results/", "R2", "Five of nine claims fail; the other four need rewording"),
 }
@@ -361,8 +361,9 @@ def part2():
 <p>On the large graph the codebase accounts for about {abs(PR('large','dw_ns','n2v_ns')['diff']):.4f}, the walk bias {PR('large',T,'n2v_ns')['diff']:.4f}, and moving from NS to HS {PR('large','n2v_hs','n2v_ns')['diff']:.4f}. Repo defaults widen the gap ({Q('large','dw_repo'):.3f} vs {Q('large','n2v_repo'):.3f}): moving to them costs NS node2vec {Q('large','n2v_ns')-Q('large','n2v_repo'):.3f} and DeepWalk's hybrid {Q('large','dw_hsns')-Q('large','dw_repo'):.3f}, though the two rows change different settings, so this can't be pinned on one of them (S7). Why HS beats NS isn't settled by this table. """
     if HAS_NEG:
         nr = [[n] + [f"{Q(g, c):.3f}" for g in ("small", "large")] + [f"{L(g, c):.2f}" for g in ("small", "large")] + [f"{S['quality']['large'][c]['0']['n_seeds']}"] for c, n in (("n2v_ns+negative=1", "NS, 1 negative"), ("n2v_ns", "NS, 5 negatives"), ("n2v_ns+negative=15", "NS, 15 negatives"), ("n2v_ns+negative=30", "NS, 30 negatives"), ("n2v_hs", "HS"))]
+        NEG_COST = json.loads((RESULTS / "run_large_n2v_ns+negative=30_split0_s0.json").read_text())["timings"]["train_s"] / json.loads((RESULTS / "run_large_n2v_ns_split0_s0.json").read_text())["timings"]["train_s"]
         best = max(("n2v_ns+negative=1", "n2v_ns+negative=15", "n2v_ns+negative=30"), key=lambda c: Q("large", c))
-        h += "I tested one candidate, that 5 negatives are too few, directly:</p>" + table(["Loss", "NDCG@20 small", "large", "Lift@20 small", "large", "Seeds"], nr, "Is it the number of negative samples? Same walks, node2vec p=q=1.", (1, 2, 3, 4, 5)) + f"""<p>The best NS row on the large graph ({Q('large',best):.3f}) compares with HS at {Q('large','n2v_hs'):.3f}. {NEG_TEXT(best)}</p>"""
+        h += "I tested one candidate, that 5 negatives are too few, directly:</p>" + table(["Loss", "NDCG@20 small", "large", "Lift@20 small", "large", "Seeds"], nr, "Is it the number of negative samples? Same walks, node2vec p=q=1.", (1, 2, 3, 4, 5)) + f"""<p>The best NS row on the large graph ({Q('large',best):.3f}) compares with HS at {Q('large','n2v_hs'):.3f}. {NEG_TEXT(best)} On the small graph 30 negatives nearly match HS ({Q('small','n2v_ns+negative=30'):.3f} vs {Q('small','n2v_hs'):.3f}). They are also expensive: 30 negatives took about {NEG_COST:.1f}× the word2vec time of 5 in the contended grid, whose clocks are rough, while HS is cheaper than NS (Table 7).</p>"""
     else:
         h += "</p>"
     # S2
@@ -444,7 +445,7 @@ def part2():
 <p><b>Replication silently missing.</b> The record pattern read <code>fb_small</code> as tag <code>fb</code> plus graph <code>small</code> and skipped those runs without an error. A KeyError when printing the table exposed it. Had I built the report from the first summary, S10 would have been absent and I might have read that as the runs not having finished.</p>
 <p><b>The grid would have starved.</b> Not a result bug, but it would have cost the deadline: the first array exceeded the 50-job QOS limit, and later only 2 cores served the Tier 2 list. Working out an ETA for me exposed the second.</p>
 <h3>S12. What is still uncertain?</h3>
-<ul><li><b>Why HS beats NS.</b> It holds on every graph and I measured the size, but the mechanism isn't established (S1).</li>
+<ul><li><b>Why HS beats NS.</b> It holds on every graph where I ran it. More negatives explain part of the gap on the large graph and most of it on the small one, but the rest isn't established (S1).</li>
 <li><b>The blog.</b> I couldn't read it, so any comparison it makes is not in this report.</li>
 <li><b>Lift's cause.</b> Embeddings' lift advantage may be mostly hub avoidance. A direct test would re-score Adamic-Adar lift with hubs removed from candidates.</li>
 <li><b>Generalisation of Euclidean (S9).</b> It needs selection on validation and more graphs.</li>

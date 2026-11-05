@@ -55,3 +55,9 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
 - A whole node stayed pending for nearly 2 hours. The user accepted the 8-core `gold6226` job: same CPU model and thread count, runs
   one at a time, `workers` scaling to 8. Limitation for the report: other users' jobs may share the node.
 - Selection: p=2, q=0.5 on both graphs. A/A check holds on the large graph (same loss, DeepWalk vs p=q=1, no significant gap).
+
+### Nov 5 (evening): all tiers run, report built
+- 530 quality runs and 69 timing runs. Tier 0, 1 and 2 are all done, nothing cut. Site not built (needs the user's say-so).
+- Part 2 job first failed: `tuning.json` is Mac-only. Fixed by copying it. Results unaffected.
+- Report: `report/report.html`, PDF built without the ID. Remaining for the user: read every 4b for voice, read the blog or accept the
+  disclosure, then `STUDENT_ID=... python -m src.package`.
