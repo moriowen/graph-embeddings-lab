@@ -36,3 +36,17 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
 - `src.check` passes on the Mac (small) and on ICE (small and large).
 - Dev look at one seed on the Mac (not reportable): Adamic-Adar NDCG@20 0.50 vs embeddings ~0.35, embeddings ahead on
   label lift (~2.0 vs 1.7). The inversion is flagged for S3.
+
+### Nov 5 (afternoon): grid running; first findings on the small graph
+- Queue: my fair-share is 0.016 and `gold6226` had ~4 free cores, so 8-core jobs sat pending for 45 min. Dropped the CPU
+  constraint for quality runs (`pool.sbatch`; the record names the actual CPU) and used mixed job sizes. Timing stays on
+  an exclusive `gold6226` node.
+- Cost is far below the plan's estimate: large-graph runs take 200–400 s and 490–630 MB. The brief's warning that the
+  precompute is memory-hungry does not hold at this size.
+- Reported rows exclude the tuning seeds (a bug caught before any table was built, `src/stats.py`).
+- Small graph, 5 seeds, to be explained in Part 2: Adamic-Adar beats every embedding on held-out links and every embedding
+  beats Adamic-Adar on label lift. HS beats HS+NS beats NS. Selected p=2, q=0.5.
+- S9 inversion: embedding norm falls with degree (Spearman -0.72), so dot product picks low-degree nodes and Euclidean picks
+  hubs. Euclidean beats cosine on links (0.418 vs 0.338) and loses on lift. This contradicts the brief's expectation.
+- S3: 94% of small-graph test edges are within two hops and 95% of embedding slots land within two hops, so embeddings are
+  not reaching further than the heuristics.
