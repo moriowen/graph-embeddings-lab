@@ -1,0 +1,22 @@
+.venv/
+.venv-ice/
+__pycache__/
+slurm/logs/
+.DS_Store
+.env*
+
+# instructor material, not mine to redistribute
+2026-ProgrammingAssignment-5.pdf
+
+# raw SNAP downloads (re-fetchable; URLs and checksums in data/provenance.json)
+data/raw/
+
+# embeddings and per-node dumps are large and reproducible from config + seed
+embeddings/
+results/nodes/
+
+# build output and raw session-log dump used to curate src/prompts.py
+*.pdf
+*.zip
+report/.report-print.html
+prompts-raw.md
