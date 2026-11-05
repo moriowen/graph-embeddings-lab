@@ -20,3 +20,4 @@ results/nodes/
 *.zip
 report/.report-print.html
 prompts-raw.md
+results/run_dev_*

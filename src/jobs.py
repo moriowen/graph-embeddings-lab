@@ -32,6 +32,15 @@ def main():
     # Split variation: the two main rows and the best baseline on the two other splits.
     write("splits", [line(g, c, s, k) for g in g2 for c in ("dw_hsns", "n2v_ns", "base_aa", "base_cn") for s in SEEDS
                      for k in SPLITS if k])
+    # Part 2, Tier 2. Three seeds. Sweeps change one thing from n2v_ns (uniform walk, the shared config).
+    s3 = SEEDS[:3]
+    sweep = ["d=32", "d=64", "d=256", "l=20", "l=40", "w=5", "w=20", "epochs=1", "epochs=10"]
+    write("sweep", [line(g, f"n2v_ns+{o}", s) for g in g2 for o in sweep for s in s3])
+    write("hubs", [line(g, f"{c}+{o}", s) for g in g2 for c in ("dw_ns", "n2v_ns")
+                   for o in ("hubdrop=0.01", "sample=0") for s in s3])
+    fb = [line(g, c, s) for g in ("fb_small", "fb_large") for c in ("dw_hsns", "n2v_ns", "n2v_hs", "n2v_p0.25_q4", "n2v_p4_q0.25") + BASELINES
+          for s in s3]
+    write("replicate", fb)
     p = RESULTS / "tuning.json"
     if p.exists():
         t = json.loads(p.read_text())

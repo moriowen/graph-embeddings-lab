@@ -107,7 +107,12 @@ def main():
         X = None
     else:
         c = resolve(a.config)
-        X, timings, _ = train(g.n, sp_["train"], c, a.seed, a.workers)
+        tr = sp_["train"]
+        if c.get("hubdrop"):   # S8: the top fraction of nodes by training degree never enter a walk
+            deg = np.asarray(adj(g.n, tr).sum(1)).ravel()
+            hubs = np.argsort(-deg)[:max(1, round(c["hubdrop"] * g.n))]
+            tr = tr[~np.isin(tr, hubs).any(1)]
+        X, timings, _ = train(g.n, tr, c, a.seed, a.workers)
         score = EmbeddingScorer(X)
     timings["total_s"] = time.perf_counter() - t0
     rec = dict(graph=a.graph, config=a.config, params=c, seed=a.seed, split=a.split, workers=a.workers,
