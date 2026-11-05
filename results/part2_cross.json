@@ -1,0 +1,215 @@
+{
+ "deg_ratio_median": 1.8571428571428572,
+ "physics_edge_share_of_degree": 0.5526970885620037,
+ "configs": {
+  "dw_hsns": {
+   "examples": {
+    "HD_28185": {
+     "small": [
+      "HD_28185_b",
+      "Gas_giant",
+      "47_Ursae_Majoris_c",
+      "Extrasolar_planet",
+      "Planetary_habitability"
+     ],
+     "large_all": [
+      "HD_28185_b",
+      "Extrasolar_planet",
+      "Mu_Arae",
+      "47_Ursae_Majoris",
+      "Upsilon_Andromedae"
+     ],
+     "large_phys_share20": 1.0
+    },
+    "Integrated_circuit": {
+     "small": [
+      "Bluetooth",
+      "Radio_frequency",
+      "Photon",
+      "Optical_telescope",
+      "Light"
+     ],
+     "large_all": [
+      "Semiconductor_device",
+      "Moore's_Law",
+      "Electronics",
+      "Semiconductor",
+      "Central_processing_unit"
+     ],
+     "large_phys_share20": 0.45
+    },
+    "90377_Sedna": {
+     "small": [
+      "Eris_(dwarf_planet)",
+      "Scattered_disc",
+      "1_Ceres",
+      "Pluto",
+      "Ceres_(dwarf_planet)"
+     ],
+     "large_all": [
+      "Eris_(dwarf_planet)",
+      "Kuiper_belt",
+      "Scattered_disc",
+      "Definition_of_planet",
+      "Pluto"
+     ],
+     "large_phys_share20": 0.9
+    },
+    "Andromeda_Galaxy": {
+     "small": [
+      "Galaxy",
+      "Pleiades_(star_cluster)",
+      "H_II_region",
+      "Orion_Nebula",
+      "Universe"
+     ],
+     "large_all": [
+      "Universe",
+      "Planetary_nebula",
+      "Milky_Way",
+      "Hubble_Deep_Field",
+      "H_II_region"
+     ],
+     "large_phys_share20": 1.0
+    },
+    "Special_relativity": {
+     "small": [
+      "Quantum_mechanics",
+      "Time",
+      "Wave\u2013particle_duality",
+      "Big_Bang",
+      "Physics"
+     ],
+     "large_all": [
+      "Luminiferous_aether",
+      "Introduction_to_special_relativity",
+      "Black_hole",
+      "String_theory",
+      "Electromagnetic_radiation"
+     ],
+     "large_phys_share20": 0.9
+    }
+   },
+   "seed_jaccard20_small": 0.5563439956550706,
+   "seed_jaccard20_large": 0.6409903798573532,
+   "metrics": {
+    "jaccard5": 0.290944515944516,
+    "agree_small5": 0.7363963963963963,
+    "agree_large_phys5": 0.7623423423423423,
+    "agree_large_all5": 0.6486486486486486,
+    "phys_share5": 0.8257657657657658,
+    "jaccard20": 0.3418625050246007,
+    "agree_small20": 0.6395945945945947,
+    "agree_large_phys20": 0.6794144144144143,
+    "agree_large_all20": 0.5640090090090091,
+    "phys_share20": 0.794054054054054
+   },
+   "n_seeds": 5
+  },
+  "n2v_ns": {
+   "examples": {
+    "HD_28185": {
+     "small": [
+      "HD_28185_b",
+      "Proxima_Centauri",
+      "Planetary_habitability",
+      "16_Cygni",
+      "HD_209458_b"
+     ],
+     "large_all": [
+      "HD_28185_b",
+      "Extrasolar_planet",
+      "Upsilon_Andromedae",
+      "47_Ursae_Majoris",
+      "Star"
+     ],
+     "large_phys_share20": 0.95
+    },
+    "Integrated_circuit": {
+     "small": [
+      "Bluetooth",
+      "Radio_frequency",
+      "Optical_telescope",
+      "Light",
+      "Optical_microscope"
+     ],
+     "large_all": [
+      "Semiconductor_device",
+      "Moore's_Law",
+      "Electronics",
+      "Speed_of_light",
+      "Gallium"
+     ],
+     "large_phys_share20": 0.45
+    },
+    "90377_Sedna": {
+     "small": [
+      "Scattered_disc",
+      "Eris_(dwarf_planet)",
+      "Kuiper_belt",
+      "Pluto",
+      "1_Ceres"
+     ],
+     "large_all": [
+      "Eris_(dwarf_planet)",
+      "Scattered_disc",
+      "Kuiper_belt",
+      "Pluto",
+      "Definition_of_planet"
+     ],
+     "large_phys_share20": 0.95
+    },
+    "Andromeda_Galaxy": {
+     "small": [
+      "Fermi_paradox",
+      "Milky_Way",
+      "Universe",
+      "Radio_telescope",
+      "Galaxy"
+     ],
+     "large_all": [
+      "Planetary_nebula",
+      "Hubble_Deep_Field",
+      "Redshift",
+      "H_II_region",
+      "Milky_Way"
+     ],
+     "large_phys_share20": 1.0
+    },
+    "Special_relativity": {
+     "small": [
+      "Time",
+      "Quantum_mechanics",
+      "Wave\u2013particle_duality",
+      "Big_Bang",
+      "Introduction_to_special_relativity"
+     ],
+     "large_all": [
+      "Luminiferous_aether",
+      "Introduction_to_special_relativity",
+      "Hubble's_law",
+      "Redshift",
+      "Physical_paradox"
+     ],
+     "large_phys_share20": 0.9
+    }
+   },
+   "seed_jaccard20_small": 0.5974333861856252,
+   "seed_jaccard20_large": 0.5981833335856567,
+   "metrics": {
+    "jaccard5": 0.2824217074217074,
+    "agree_small5": 0.7441441441441443,
+    "agree_large_phys5": 0.7394594594594593,
+    "agree_large_all5": 0.6275675675675675,
+    "phys_share5": 0.8210810810810811,
+    "jaccard20": 0.32637284113169357,
+    "agree_small20": 0.6559459459459459,
+    "agree_large_phys20": 0.6685585585585585,
+    "agree_large_all20": 0.5448648648648649,
+    "phys_share20": 0.7782882882882883
+   },
+   "n_seeds": 5
+  }
+ },
+ "base_small": 0.31551913904855083
+}

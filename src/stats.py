@@ -15,7 +15,7 @@ from scipy.stats import wilcoxon
 
 from config import BASELINES, KS_ALL, MAIN_GRAPHS, MATRIX, NODES, PQ_GRID, RESULTS, SEEDS, TUNE_SEEDS
 
-RUN = re.compile(r"run_(?:(?P<tag>timing|dev|[a-z0-9]+)_)?(?P<graph>small|large|fb_small|fb_large)_(?P<config>.+)_split(?P<split>\d+)_s(?P<seed>\d+)(?:_w(?P<w>\d+))?\.json")
+RUN = re.compile(r"run_(?:(?P<tag>timing|dev)_)?(?P<graph>small|large|fb_small|fb_large)_(?P<config>.+)_split(?P<split>\d+)_s(?P<seed>\d+)(?:_w(?P<w>\d+))?\.json")
 
 
 def load(tag=None, include_workers=False):
