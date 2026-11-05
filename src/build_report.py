@@ -199,7 +199,7 @@ def cover():
 <p><b>Student ID:</b> {R.SID_SLOT}</p>
 <p>Code, run records and logs: in the submitted zip, <code>HW5_P_Mohite_Atharva.zip</code>.</p></div>
 <h1>Graph embedding for node recommendation: DeepWalk vs node2vec</h1>
-<p><b>At a glance.</b> With one shared configuration, DeepWalk and node2vec with p=q=1 tie on the large graph (difference {PR('large','dw_ns','n2v_ns')['diff']:+.4f} on NDCG@20, Table 7).
+<p><b>At a glance.</b> With one shared configuration, DeepWalk and node2vec with p=q=1 tie on the large graph (difference {PR('large','dw_ns','n2v_ns')['diff']:+.4f} on NDCG@20, Table 10).
 The gap you see between the two repos ({Q('large',DW0):.3f} vs {Q('large','n2v_tuned'):.3f}) comes mostly from the loss. DeepWalk's code trains hierarchical softmax and negative sampling together, and node2vec's default trains negative sampling only.
 Tuning p and q adds {PR('large',T,'n2v_ns')['diff']:+.4f} on the large graph and nothing measurable on the small one. Adamic-Adar, a one-line heuristic, beats every embedding on held-out links under cosine distance on both graphs ({Q('small','base_aa'):.3f} and {Q('large','base_aa'):.3f}); embeddings beat it on label lift (Figure 1).
 All of this replicates in shape on ego-Facebook, except that on its small graph the heuristics win on both measures (Part 2, S10).</p>
@@ -210,14 +210,14 @@ All of this replicates in shape on ego-Facebook, except that on its small graph 
 
 
 def q1():
-    body = f"""<h2>Question 1: Read the comparison of DeepWalk and node2vec</h2>
+    body = f"""<h2 style="break-before: page">Question 1: Read the comparison of DeepWalk and node2vec</h2>
 <h3>Step 1: Final answer</h3>
-<p>Both learn node vectors by feeding random walks to skip-gram. They differ in the walk: DeepWalk steps uniformly, while node2vec biases each step by where the walk just came from. The paper calls DeepWalk's sampling "a special case of node2vec with p = 1 and q = 1" (Grover and Leskovec 2016, Section 4.1), and low q pushes the walk outward while low p keeps it close.
+<p>Both learn node vectors by feeding random walks to skip-gram. They differ in the walk: DeepWalk steps uniformly, while node2vec biases each step by where the walk just came from. The paper calls DeepWalk's sampling "a special case of node2vec with p = 1 and q = 1" (Grover and Leskovec 2016, Section 4.2), and low q pushes the walk outward while low p keeps it close.
 The blog could not be read (HTTP 403), so this answer takes nothing from it.</p>
 """ + table(["Paper's claim or setup", "What it predicts here", "What happened"], [
-        ["node2vec gains over DeepWalk: Macro-F1 up to 22.3% (Table 2); link-prediction AUC up to 3.8% (Section 4.4)", "Tuned node2vec beats DeepWalk", f"Not as the repos ship. Same loss: tie or {PR('large',T,'n2v_ns')['diff']:+.4f} (Table 7)"],
-        ["\"DeepWalk uses hierarchical sampling\"; the authors switch it to NS, since \"hierarchical softmax is inefficient\" (Section 4.1)", "NS is the fair common loss and cheaper", f"HS is both faster and better here ({TM('large','dw_hs'):.0f} s vs {TM('large','dw_ns'):.0f} s, Table 5)"],
-        ["Embeddings beat heuristics on link prediction: AUC 0.968 vs 0.888 on Facebook", "Embeddings beat Adamic-Adar", f"The reverse, under direct ranking. The paper trains a classifier on edge features and scores AUC; we rank by distance (S3)"],
+        ["node2vec gains over DeepWalk: Macro-F1 up to 22.3% (Section 4.3, its Table 2); link-prediction AUC up to 3.8% over DeepWalk (Section 4.7)", "Tuned node2vec beats DeepWalk", f"Not as the repos ship. Same loss: tie or {PR('large',T,'n2v_ns')['diff']:+.4f} (Table 10)"],
+        ["\"DeepWalk uses hierarchical sampling\"; the authors switch it to NS, since \"hierarchical softmax is inefficient\" (Section 4.2)", "NS is the fair common loss and cheaper", f"HS is both faster and better here ({TM('large','dw_hs'):.0f} s vs {TM('large','dw_ns'):.0f} s, Table 7)"],
+        ["Embeddings beat heuristics on link prediction: AUC 0.968 vs 0.888 on Facebook (Section 4.7)", "Embeddings beat Adamic-Adar", f"The reverse, under direct ranking. The paper trains a classifier on edge features and scores AUC; we rank by distance (S3)"],
         ["Settings d=128, r=10, l=80, k=10, one epoch; p, q chosen from {0.25, 0.5, 1, 2, 4}", "Use these as the shared config", f"Used, except 5 epochs. One epoch scores far lower on the large graph ({Q('large','n2v_ns+epochs=1'):.3f}, S7)"],
     ], "What the paper predicts for our graphs, and the outcome.")
     return body + step2(quote("P1") + quote("P2"), R_("P1", "P2", "R1", "R2"),
