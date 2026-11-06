@@ -25,7 +25,7 @@ HW3 and HW4 (`../HW3/`, `../HW4/`): builders are copied and adapted, not rewritt
   checks.
 - Never run the large graph on the Mac (8 GB). Timed runs share one node type and thread count, and
   machines are never mixed in one timing table.
-- No remote and no site without asking. Commits carry no AI attribution.
+- No remote without asking. The site is `public/`, from `src/build_site.py`, at https://graph-embeddings-lab.vercel.app (user asked, Nov 5). `.vercelignore` allows only `public/` and `vercel.json`, so keep it that way: this folder holds the ID-bearing PDF and the handout. Commits carry no AI attribution.
 
 ## Decisions
 

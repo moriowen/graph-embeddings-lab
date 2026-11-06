@@ -24,7 +24,7 @@ def members():
     yield from (ROOT / f for f in ("README.md", "requirements.txt", "config.py", "PROMPT.md", "PLAN.md", "IMPLEMENTATION.md", "AGENTS.md", "sync.sh"))
     for pattern in ("src/*.py", "vendor/patch.diff", "vendor/deepwalk/*", "vendor/node2vec/*", "data/provenance.json", "data/*/nodes.tsv",
                     "data/*/edges.tsv", "data/*/labels.json", "data/*/split_*.npz", "results/*.json", "slurm/*.sbatch", "slurm/*.sh",
-                    "slurm/jobs/*", "slurm/logs/*.out", "report/report.html", "report/ai_analysis_r*.md"):
+                    "slurm/jobs/*", "slurm/logs/*.out", "report/report.html", "report/ai_analysis_r*.md", "report/outside_review_*.md", "src/site_template.html", "public/index.html", "vercel.json"):
         yield from sorted(p for p in ROOT.glob(pattern) if p.is_file() and "run_dev_" not in p.name and "__pycache__" not in str(p))
 
 

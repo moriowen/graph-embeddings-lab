@@ -30,6 +30,11 @@ PROMPTS = [
     ("P13", "13:42", "typed", "can we run this on this PC? are do we need better specs?"),
     ("P14", "13:42", "typed", "Okay"),
     ("P15", "15:29", "typed", "what is the status?"),
+    ("P16", "16:44", "pasted", "Codex's first review of the report, pasted with no added words. Verbatim in the zip: report/outside_review_1.md."),
+    ("P17", "17:00", "pasted", "Codex's second review of the revised report, pasted with no added words. Verbatim in the zip: report/outside_review_2.md."),
+    ("P18", "17:07", "typed + pasted", "\"blog\" followed by the text of the handout's blog, copied from a browser (reference: Esteve 2021)."),
+    ("P19", "19:46", "typed", "just like the older assignments, can you please create a vercel site for this? to go over the experiments and results. name it graph embeddings lab"),
+    ("P20", "19:56", "typed", "can you link the prompt md file from github into this pdf report in the prompt log section. push files to remote and link it"),
 ]
 
 ROUND_INSTRUCTIONS = [

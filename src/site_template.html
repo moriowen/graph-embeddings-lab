@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graph Embeddings Lab</title>
+<meta name="description" content="DeepWalk and node2vec on Wikipedia link graphs of 222 and 4,589 articles: what the walk, the loss, tuning and a one-line heuristic each contribute.">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #fcfcfb; --surface: #ffffff; --surface-2: #f4f4f2; --line: #e4e3df; --grid: #ecebe7;
+  --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #807f7a;
+  --accent: #2a78d6;
+  --s-base: #8f8e89; --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --good: #1a7f37; --bad: #c62828;
+  --seq-0: #f4f4f2; --seq-1: #cde2fb; --seq-2: #86b6ef; --seq-3: #3987e5; --seq-4: #1c5cab; --seq-5: #0d366b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --line: #33332f; --grid: #2a2a27;
+    --ink: #ffffff; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+    --accent: #3987e5;
+    --s-base: #9a998f; --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+    --good: #4cc26a; --bad: #ef6b6b;
+    --seq-0: #232321; --seq-1: #104281; --seq-2: #1c5cab; --seq-3: #2a78d6; --seq-4: #6da7ec; --seq-5: #cde2fb;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --line: #33332f; --grid: #2a2a27;
+  --ink: #ffffff; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+  --accent: #3987e5;
+  --s-base: #9a998f; --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+  --good: #4cc26a; --bad: #ef6b6b;
+  --seq-0: #232321; --seq-1: #104281; --seq-2: #1c5cab; --seq-3: #2a78d6; --seq-4: #6da7ec; --seq-5: #cde2fb;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif; }
+a { color: var(--accent); }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; gap: 16px; height: 52px; }
+header.top .brand { font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; text-decoration: none; color: var(--ink); }
+nav.toc { display: flex; gap: 14px; overflow-x: auto; scrollbar-width: none; flex: 1; font-size: 14px; }
+nav.toc a { color: var(--ink-2); text-decoration: none; white-space: nowrap; }
+nav.toc a:hover { color: var(--ink); }
+button { font: inherit; }
+.iconbtn { border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 14px; }
+.hero { padding: 56px 0 24px; }
+.eyebrow { color: var(--ink-3); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; letter-spacing: -0.02em; margin: 8px 0 16px; max-width: 22ch; }
+.lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin: 0; }
+.meta { color: var(--ink-3); font-size: 14px; margin-top: 14px; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 32px 0 8px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.stat .v { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat .k { color: var(--ink-2); font-size: 14px; margin-top: 6px; }
+section { padding: 40px 0 8px; border-top: 1px solid var(--line); margin-top: 32px; scroll-margin-top: 60px; }
+h2 { font-size: 28px; letter-spacing: -0.015em; margin: 0 0 6px; line-height: 1.2; }
+h3 { font-size: 18px; margin: 28px 0 6px; }
+.claim { font-size: 18px; color: var(--ink); font-weight: 500; max-width: 68ch; margin: 4px 0 16px; }
+p { max-width: 70ch; }
+.muted { color: var(--ink-2); }
+.small { font-size: 14px; color: var(--ink-2); }
+ol.findings { counter-reset: f; list-style: none; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ol.findings li { counter-increment: f; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px 14px 52px; position: relative; }
+ol.findings li::before { content: counter(f); position: absolute; left: 16px; top: 15px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; display: grid; place-items: center; }
+ol.findings b { display: block; margin-bottom: 4px; }
+ol.findings a { font-size: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px 10px; margin: 16px 0; }
+.card .ctitle { font-weight: 600; font-size: 15px; }
+.card .csub { color: var(--ink-2); font-size: 13px; margin-bottom: 6px; }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { fill: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--ink-2); margin: 4px 0 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; }
+.legend i.box { height: 10px; width: 10px; border-radius: 2px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 6px 0 8px; font-size: 14px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; flex-wrap: wrap; }
+.seg button { border: 0; background: var(--surface); color: var(--ink-2); padding: 5px 10px; cursor: pointer; font-size: 13px; border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+select, input[type="search"] { font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; }
+.tablebtn { background: none; border: 0; color: var(--accent); cursor: pointer; font-size: 13px; padding: 4px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; font-size: 13px; }
+td.n, th.n { text-align: right; }
+.tscroll { overflow-x: auto; }
+#tip { position: fixed; pointer-events: none; z-index: 50; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13px; box-shadow: 0 6px 24px rgba(0,0,0,.14); opacity: 0; transition: opacity .08s; max-width: 280px; }
+#tip .th { color: var(--ink-2); font-size: 12px; margin-bottom: 4px; }
+#tip .row { display: flex; align-items: center; gap: 8px; }
+#tip .row b { font-variant-numeric: tabular-nums; }
+#tip .row i { width: 12px; height: 3px; border-radius: 2px; display: inline-block; }
+#tip .row span { color: var(--ink-2); }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+#echo-ex { white-space: pre-wrap; }
+.callout { border-left: 3px solid var(--accent); background: var(--surface-2); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; max-width: 72ch; }
+.qlist { display: grid; gap: 8px; }
+details.q { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+details.q summary { list-style: none; cursor: pointer; padding: 10px 12px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: start; }
+details.q summary::-webkit-details-marker { display: none; }
+details.q .qt { font-weight: 500; }
+details.q .qc { color: var(--ink-3); font-size: 12px; }
+.dots { display: flex; gap: 4px; align-items: center; white-space: nowrap; }
+.dot { width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 11px; font-weight: 700; color: #fff; }
+.dot.ok { background: var(--good); } .dot.no { background: var(--bad); }
+details.q .body { padding: 0 12px 12px; border-top: 1px solid var(--line); }
+ul.choices { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 4px; }
+ul.choices li { padding: 6px 8px; border-radius: 6px; background: var(--surface-2); display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 14px; }
+ul.choices li.gold { outline: 2px solid var(--good); outline-offset: -2px; }
+.tag { font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--ink-2); white-space: nowrap; }
+.gens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gen { background: var(--surface-2); border-radius: 6px; padding: 8px; font-size: 13px; }
+.gen .gh { font-weight: 600; font-size: 12px; color: var(--ink-2); margin-bottom: 4px; display: flex; gap: 6px; flex-wrap: wrap; }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 48px; color: var(--ink-3); font-size: 14px; }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.88em; background: var(--surface-2); padding: 1px 4px; border-radius: 4px; }
+pre { background: var(--surface-2); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ol.findings, .two, .gens { grid-template-columns: 1fr; }
+  header.top .brand { display: none; }
+  .lede { font-size: 17px; }
+}
+.four { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.mini { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.note { color: var(--ink-2); font-size: 14px; margin: 12px 0 0; }
+ul.plain { padding-left: 20px; } ul.plain li { margin-bottom: 8px; }
+ol.refs { font-size: 14px; color: var(--ink-2); padding-left: 22px; }
+ol.recs { margin: 8px 0 0; padding-left: 22px; font-size: 14px; } ol.recs li { padding: 4px 0; border-top: 1px solid var(--line); }
+.rt { font-weight: 500; margin-right: 6px; } .tags { display: inline-flex; flex-wrap: wrap; gap: 4px; vertical-align: middle; }
+.wrapc { flex-wrap: wrap; gap: 10px; align-items: center; }
+select { font: inherit; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); }
+@media (max-width: 760px) { .four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">Graph Embeddings Lab</a>
+  <nav class="toc">
+    <a href="#findings">Findings</a><a href="#tradeoff">Links vs topics</a><a href="#controls">Walk or loss</a><a href="#tuning">Tuning</a>
+    <a href="#noise">Noise</a><a href="#hubs">Hubs</a><a href="#distance">Distance</a><a href="#k">K</a><a href="#settings">Settings</a>
+    <a href="#cost">Cost</a><a href="#growth">Growth</a><a href="#replication">Replication</a><a href="#explorer">Lists</a><a href="#open">Open questions</a><a href="#setup">Setup</a>
+  </nav>
+  <button class="iconbtn" id="theme" aria-label="Toggle color theme">◐</button>
+</div></header>
+
+<main class="wrap" id="top">
+<div class="hero">
+  <div class="eyebrow">Experiment write-up · graph embeddings for recommendation</div>
+  <h1>The loss function, not the random walk, separates DeepWalk from node2vec</h1>
+  <p class="lede">I ran both algorithms on Wikipedia link graphs of 222 and 4,589 articles to recommend related articles. Out of
+  the box, DeepWalk wins on the large graph. But its code quietly trains two losses at once. Give both algorithms the same loss and
+  they tie there, and a one-line heuristic beats them both at predicting links.</p>
+  <div class="meta">Atharva Mohite · November 2026 · <span data-v="D.n_runs"></span> quality runs, <span data-v="D.n_timing"></span> timing runs · Georgia Tech PACE cluster, CPU only</div>
+  <div class="stats">
+    <div class="stat"><div class="v" data-v="sg(P('large:dw_ns-n2v_ns').diff)"></div><div class="k">NDCG@20, DeepWalk over node2vec on the large graph, with the same loss and p=q=1</div></div>
+    <div class="stat"><div class="v" data-v="sg(P('large:n2v_hs-n2v_ns').diff)"></div><div class="k">switching the loss from negative sampling to hierarchical softmax, same walks</div></div>
+    <div class="stat"><div class="v" data-v="sg(P('large:'+D.tuned+'-n2v_ns').diff)"></div><div class="k">tuning node2vec's p and q on the same split, against p=q=1</div></div>
+    <div class="stat"><div class="v"><span data-v="f(D.q.large.base_aa.k['20'].ndcg,3)"></span> / <span data-v="f(D.q.large.n2v_hs.k['20'].ndcg,3)"></span></div><div class="k">Adamic-Adar against node2vec with hierarchical softmax, NDCG@20 on held-out links</div></div>
+  </div>
+</div>
+
+<section id="findings">
+  <h2>What the experiment shows</h2>
+  <ol class="findings">
+    <li><b>The repo comparison measures the wrong thing.</b>DeepWalk's code passes <code>hs=1</code> and leaves gensim's <code>negative=5</code> on, so it trains both losses. node2vec trains negative sampling only. That accounts for most of the gap between them on the large graph.</li>
+    <li><b>Walk bias is real but tiny.</b>On the large graph, tuning p and q stays positive on all three edge splits (<span data-v="gapText('large',D.tuned,'n2v_ns')"></span>), about a tenth of the loss effect. On the small graph its sign changes across splits, so I make no claim there.</li>
+    <li><b>The two ways to measure quality disagree.</b>Adamic-Adar finds more held-out links on both graphs. Embeddings find more articles on the query's topic: lift <span data-v="f(D.q.large.dw_hsns.k['20'].lift)"></span> against <span data-v="f(D.q.large.base_aa.k['20'].lift)"></span> on the large graph. "Better" depends on which you mean.</li>
+    <li><b>Walks don't reach further here.</b>The usual case for embeddings is finding nodes beyond two hops. But <span data-v="pct(D.strata.large.two_hop_share)"></span> of the large graph's test edges are already within two hops, and embeddings spend <span data-v="pct(D.strata.large.table.dw_hsns.top_in_2hop)"></span> of their slots there anyway.</li>
+    <li><b>Hubs drive the heuristic, not the embeddings.</b>Adamic-Adar gives <span data-v="pct(D.hubs.large.table.base_aa.hub_slots)"></span> of its slots to the top 1% of articles and never recommends <span data-v="pct(D.hubs.large.table.base_aa.never)"></span> of all articles. DeepWalk gives hubs <span data-v="pct1(D.hubs.large.table.dw_hsns.hub_slots)"></span> and recommends every article at least once.</li>
+    <li><b>One list proves very little.</b>Two seeds of the same algorithm share only <span data-v="f(listOverlap().seed)"></span> of a top-5 list on average, not much more than the two algorithms share with each other (<span data-v="f(listOverlap().between)"></span>). Conclusions here come from all-node metrics, not from examples that look good.</li>
+  </ol>
+</section>
+
+<section id="tradeoff">
+  <h2>Links against topics</h2>
+  <p class="claim">No method wins on both measures under cosine distance: heuristics sit to the right, embeddings sit higher.</p>
+  <div class="card">
+    <div class="ctitle">Held-out link quality against topical lift, top 20</div>
+    <div class="csub">Each point is a method on split 0, averaged over seeds. Up and to the right is better. Lift is how many times more often a list shares a label with the query than a random article would.</div>
+    <div class="controls"><div class="seg" id="seg-tr"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+    <div class="legend" id="l-tr"></div>
+    <div class="chart" id="c-tr"></div>
+    <button class="tablebtn" data-table="tr">Show table</button><div class="tscroll" id="t-tr" hidden></div>
+  </div>
+</section>
+
+<section id="controls">
+  <h2>Is it the walk or the loss?</h2>
+  <p class="claim">Reading across a group compares the walks. Reading between groups compares the losses, and that is where the difference is.</p>
+  <div class="card">
+    <div class="ctitle">NDCG@20 by walk and loss</div>
+    <div class="csub">Same settings throughout: d=128, 80-step walks, 10 walks per node, window 10, 5 epochs. Error bars show ±1 sd across seeds.</div>
+    <div class="controls"><div class="seg" id="seg-ct"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+    <div class="legend" id="l-ct"></div>
+    <div class="chart" id="c-ct"></div>
+    <div class="tscroll" id="t-ct"></div>
+    <p class="note">The confidence intervals resample query nodes, which share one graph and so aren't truly independent, so they run optimistic. Seed t is the gap in units of its standard error across seeds. The small graph's same-loss gap excludes zero on that interval but has a seed t of only <span data-v="f(P('small:dw_ns-n2v_ns').seed_t,1)"></span> and ran on one split, so it stays unresolved.</p>
+  </div>
+  <div class="card">
+    <div class="ctitle">Is it just too few negatives?</div>
+    <div class="csub">Partly. node2vec walks with p=q=1, NDCG@20. Runs with more negatives took much longer to train.</div>
+    <div class="controls"><div class="seg" id="seg-neg"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+    <div class="chart" id="c-neg"></div>
+  </div>
+</section>
+
+<section id="tuning">
+  <h2>Tuning p and q</h2>
+  <p class="claim">Validation picks the same cell on both graphs, on the outward-exploring side, but it barely matters.</p>
+  <div class="card">
+    <div class="ctitle">Validation NDCG@20 over the paper's grid</div>
+    <div class="csub">Selected cell outlined in orange. The colour scale is set separately for each graph, so read the printed values. Test scores were never used to choose.</div>
+    <div class="controls"><div class="seg" id="seg-pq"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+    <div class="chart" id="c-pq"></div>
+    <p class="note">Winner's curse on the small graph: the selected cell scores <span data-v="f(D.selection.small.selected_test_tuneseeds,3)"></span> on test with the seeds that picked it and <span data-v="f(D.q.small[D.tuned].k['20'].ndcg,3)"></span> with fresh seeds, level with p=q=1 at <span data-v="f(D.q.small.n2v_ns.k['20'].ndcg,3)"></span>. Reporting the selection seeds would have shown a gain that isn't there, and an early version of my analysis did exactly that.</p>
+  </div>
+</section>
+
+<section id="noise">
+  <h2>What is signal and what is noise?</h2>
+  <p class="claim">Scores across all nodes are stable. Individual lists are not.</p>
+  <div class="card">
+    <div class="ctitle">The same gap on each edge split</div>
+    <div class="csub">Difference in NDCG@20 of 5-seed means. A gap has to hold across splits before I trust it. The same-loss DeepWalk row ran on split 0 only, so it isn't here.</div>
+    <div class="tscroll" id="t-gaps"></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">How stable is one list?</div>
+    <div class="csub">Jaccard overlap between top-K lists from different seeds of the same method. 1 means identical.</div>
+    <div class="tscroll" id="t-jac"></div>
+  </div>
+</section>
+
+<section id="hubs">
+  <h2>Hubs and heuristics</h2>
+  <p class="claim">Adamic-Adar wins partly by recommending hubs. Remove them and the gap narrows, though it stays ahead.</p>
+  <div class="two">
+    <div class="card"><div class="ctitle">Share of recommendation slots going to the top 1% of articles</div><div class="csub">Large graph, by training degree.</div><div class="chart" id="c-hub"></div></div>
+    <div class="card"><div class="ctitle">NDCG@20 with hubs in and out</div><div class="csub">Large graph. Hubs out: removed from both candidates and held-out edges.</div><div class="legend" id="l-hub2"></div><div class="chart" id="c-hub2"></div></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">Who wins where</div>
+    <div class="csub">NDCG@20 by quartile of query degree, Q1 lowest. Beyond two hops, Adamic-Adar scores zero by construction.</div>
+    <div class="controls"><div class="seg" id="seg-st"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+    <div class="tscroll" id="t-st"></div>
+    <p class="note" id="st-note"></p>
+  </div>
+</section>
+
+<section id="distance">
+  <h2>"Embedding distance" hides a choice</h2>
+  <p class="claim">Same vectors, different metric: lists share only about half their members, and the winner changes.</p>
+  <div class="card">
+    <div class="ctitle">DeepWalk vectors under three distance metrics</div>
+    <div class="csub">5 seeds. I expected dot product to favour high-norm hubs. The reverse happens, because vector norm falls as degree rises.</div>
+    <div class="tscroll" id="t-dist"></div>
+    <p class="note"><b>Treat this as a lead, not a result.</b> On the large graph Euclidean passes Adamic-Adar on both measures, the only time an embedding does. But I found it after looking at test scores, it doesn't hold on the small graph, and the metric was never selected on validation.</p>
+  </div>
+</section>
+
+<section id="k">
+  <h2>Choosing K</h2>
+  <p class="claim">Precision falls as K grows, but mostly because its ceiling falls: a node with 2 held-out neighbours can't exceed P@20 = 0.10.</p>
+  <div class="controls"><div class="seg" id="seg-k"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+  <div class="two">
+    <div class="card"><div class="ctitle">Precision against its ceiling</div><div class="csub">The ceiling is the highest precision possible given each node's held-out count.</div><div class="legend" id="l-k1"></div><div class="chart" id="c-k1"></div></div>
+    <div class="card"><div class="ctitle">NDCG across K</div><div class="csub">The normalised metric, so comparable across K. I can't fully explain the dip after K=1.</div><div class="legend" id="l-k2"></div><div class="chart" id="c-k2"></div></div>
+  </div>
+</section>
+
+<section id="settings">
+  <h2>The settings nobody talks about</h2>
+  <p class="claim">On the large graph, window and walk length move NDCG@20 far more than p and q do.</p>
+  <div class="card">
+    <div class="ctitle">One setting moved at a time</div>
+    <div class="csub">node2vec p=q=1, negative sampling, 3 seeds (the base setting uses 5). Each panel varies one setting and holds the rest at d=128, l=80, w=10, 5 epochs.</div>
+    <div class="controls"><div class="seg" id="seg-sw"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div></div>
+    <div class="four">
+      <div><div class="mini">Dimension</div><div class="chart" id="c-sw-d"></div></div>
+      <div><div class="mini">Walk length</div><div class="chart" id="c-sw-l"></div></div>
+      <div><div class="mini">Window</div><div class="chart" id="c-sw-w"></div></div>
+      <div><div class="mini">Epochs</div><div class="chart" id="c-sw-epochs"></div></div>
+    </div>
+    <button class="tablebtn" data-table="sw">Show table with lift</button><div class="tscroll" id="t-sw" hidden></div>
+    <p class="note">More training pulls vectors toward specific neighbours and less keeps them broadly topical: one epoch has the worst NDCG and the best lift among the epoch settings. My explanation for bigger dimensions doing worse (too few epochs to fit that many parameters) is untested.</p>
+  </div>
+</section>
+
+<section id="cost">
+  <h2>What it costs</h2>
+  <p class="claim">Word2vec dominates the time, and a query takes under a millisecond, so training is the whole bill.</p>
+  <div class="card">
+    <div class="ctitle">Where the time goes, 4,589 articles</div>
+    <div class="csub">One worker, 3 repeats, 8-core job on a Xeon Gold 6226. Other users' jobs may share the node.</div>
+    <div class="legend" id="l-ph"></div>
+    <div class="chart" id="c-ph"></div>
+    <button class="tablebtn" data-table="ph">Show table</button><div class="tscroll" id="t-ph" hidden></div>
+  </div>
+  <div class="two">
+    <div class="card"><div class="ctitle">Total time by worker count</div><div class="csub">Large graph. One worker has 3 repeats, the others a single run. node2vec's precompute is serial.</div><div class="legend" id="l-wk"></div><div class="chart" id="c-wk"></div></div>
+    <div class="card"><div class="ctitle">From 222 to 4,589 articles</div><div class="csub">Each phase grows with what its design predicts, except word2vec.</div><div class="tscroll" id="t-sc"></div><p class="note">Subsampling explains part of word2vec's growth. The remaining factor is unexplained; cache misses are my untested guess.</p></div>
+  </div>
+</section>
+
+<section id="growth">
+  <h2>What happens to a node's list when the graph grows?</h2>
+  <p class="claim">The same article gets a different list, and that difference is well beyond seed noise.</p>
+  <div class="card">
+    <div class="ctitle">The 222 physics articles, in both graphs</div>
+    <div class="csub">DeepWalk as written. Top-20 agreement with the article's own physics subcategory, the one label both graphs share. Base rate <span data-v="f(D.cross.base)"></span>.</div>
+    <div class="tscroll" id="t-gr"></div>
+    <p class="note" id="gr-note"></p>
+  </div>
+</section>
+
+<section id="replication">
+  <h2>Does this replicate on another kind of graph?</h2>
+  <p class="claim">The shape holds on ego-Facebook, with one exception: on the small friend network, heuristics win on both measures.</p>
+  <div class="card">
+    <div class="ctitle">Anonymised friendships, with social circles as labels</div>
+    <div class="csub">3 seeds, split 0. Only the two extreme p, q cells were run, and no same-loss DeepWalk rows, so the walk comparison itself did not replicate.</div>
+    <div class="controls"><div class="seg" id="seg-fb"><button data-k="fb_small" aria-pressed="false">324 people</button><button data-k="fb_large" aria-pressed="true">4,039 people</button></div></div>
+    <div class="tscroll" id="t-fb"></div>
+  </div>
+</section>
+
+<section id="explorer">
+  <h2>Look at the lists yourself</h2>
+  <p class="claim">Five query articles, drawn by a degree rule fixed before any embedding existed. Check how many seeds agree before reading much into an item.</p>
+  <div class="controls wrapc">
+    <select id="x-query" aria-label="Query article"></select>
+    <div class="seg" id="seg-xg"><button data-k="small" aria-pressed="false">222 articles</button><button data-k="large" aria-pressed="true">4,589 articles</button></div>
+    <div class="seg" id="seg-xk"><button data-k="5" aria-pressed="true">Top 5</button><button data-k="20" aria-pressed="false">Top 20</button></div>
+  </div>
+  <p class="note" id="x-stat"></p>
+  <div class="two" id="x-lists"></div>
+  <p class="note">Seed 0's list. <b>same label</b>: shares a label with the query. <b>in training</b>: already linked in the training graph. <b>held out</b>: a real link hidden from training. <b>n/5</b>: how many of 5 seeds put this article in their top K.</p>
+</section>
+
+<section id="open">
+  <h2>What I still don't know</h2>
+  <ul class="plain">
+    <li><b>Why HS beats NS.</b> It holds on every graph where I ran it. More negatives close part of the gap on the large graph and most of it on the small one, but the rest isn't established.</li>
+    <li><b>The small graph's same-loss gap.</b> Running the same-loss DeepWalk row on two more splits would settle it.</li>
+    <li><b>The cause of the lift gap.</b> It may be mostly hub avoidance. Re-scoring Adamic-Adar's lift with hubs removed would test that.</li>
+    <li><b>Whether Euclidean generalises.</b> It needs selection on validation and more graphs.</li>
+    <li><b>Word2vec's leftover scaling factor.</b> A cache-miss count would settle it.</li>
+    <li><b>Whether a link is a good recommendation.</b> A held-out link is what an editor chose to link. Wikispeedia's human navigation paths would be a better signal to test against.</li>
+  </ul>
+</section>
+
+<section id="setup">
+  <h2>Setup</h2>
+  <div class="card">
+    <div class="ctitle">Graphs</div>
+    <div class="csub">The small Wikipedia graph is nested inside the large one, so the same articles can be queried on both.</div>
+    <div class="tscroll" id="t-g"></div>
+  </div>
+  <ul class="plain">
+    <li><b>Code.</b> <code>phanein/deepwalk</code> at 6e6dff2 and <code>eliorc/node2vec</code> at 872af47, on gensim 4.3.3, with a small patch for import failures and seeding. Neither imports as shipped on Python 3.11.</li>
+    <li><b>Evaluation.</b> A seeded spanning tree is protected, then 20% of edges are held out for test and 10% for validation, before any walk. Candidates exclude the query and known edges. NDCG@20 was fixed as the primary metric before results.</li>
+    <li><b>Controls.</b> Random, popularity, common neighbours and Adamic-Adar baselines; both walks crossed with three losses; p and q chosen on validation only, then re-run with fresh seeds.</li>
+    <li><b>Limits.</b> Lift isn't comparable between the two Wikipedia graphs because their label schemes differ. Sweeps and hub tests use 3 seeds, other rows 5. Quality runs used two CPU models. The paper reports classifier AUC, so its result and this ranking result aren't the same test.</li>
+    <li><b>Bugs caught.</b> The tuned row first averaged in its own selection seeds, and a regex silently dropped the ego-Facebook runs. Both showed up because a number looked wrong.</li>
+    <li><b>AI use.</b> Built with Claude Code, which wrote the code and drafted the analysis. No model output is treated as ground truth: every number here comes from held-out edges and dataset labels.</li>
+  </ul>
+  <h3>References</h3>
+  <ol class="refs">
+    <li>Perozzi, Al-Rfou, Skiena (2014). DeepWalk: Online learning of social representations. KDD.</li>
+    <li>Grover, Leskovec (2016). node2vec: Scalable feature learning for networks. KDD.</li>
+    <li>Adamic, Adar (2003). Friends and neighbors on the Web. Social Networks 25(3).</li>
+    <li>Mikolov et al. (2013). Distributed representations of words and phrases and their compositionality. NeurIPS.</li>
+    <li>West, Pineau, Precup (2009). Wikispeedia. IJCAI. West, Leskovec (2012). Human wayfinding in information networks. WWW.</li>
+    <li>McAuley, Leskovec (2012). Learning to discover social circles in ego networks. NeurIPS.</li>
+    <li>Leskovec, Krevl (2014). SNAP Datasets. snap.stanford.edu/data</li>
+  </ol>
+</section>
+</main>
+<footer><div class="wrap">Every number on this page is read from the run records at build time.</div></footer>
+<div id="tip" role="status" aria-live="polite"></div>
+<script>
+const D = /*__DATA__*/null;
+const pct = x => (100 * x).toFixed(0) + '%';
+const pct1 = x => (100 * x).toFixed(1) + '%';
+const mib = b => b;
+const f = (x, k = 2) => Number(x).toFixed(k);
+const sg = (x, k = 4) => (x > 0 ? '+' : '') + Number(x).toFixed(k);
+const P = k => D.pairs[k];
+const listOverlap = () => { const c = ['small', 'large'].flatMap(g => Object.values(D.lists[g])), m = xs => xs.reduce((a, x) => a + x, 0) / xs.length; return { between: m(c.map(e => e.between['5'])), seed: m(c.flatMap(e => [e.DeepWalk['5'].seed_jaccard, e.node2vec['5'].seed_jaccard])) }; };
+const GN = { small: 'Small', large: 'Large' };
+const gapText = (g, a, b) => ['0', '1', '2'].map(s => sg(D.q[g][a].splits[s] - D.q[g][b].splits[s])).join(', ');
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+// ---- fill data-bound text ----
+document.querySelectorAll('[data-v]').forEach(el => { el.textContent = new Function('D', 'pct', 'mib', 'return ' + el.dataset.v)(D, pct, mib); });
+document.querySelectorAll('[data-href]').forEach(el => { el.href = new Function('D', 'return ' + el.dataset.href)(D); });
+
+// ---- theme ----
+const themeBtn = document.getElementById('theme');
+try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+themeBtn.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('theme', document.documentElement.dataset.theme); } catch (e) {}
+  renderAll();
+});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAll);
+
+// ---- tooltip ----
+const tip = document.getElementById('tip');
+function showTip(ev, title, rows) {
+  tip.replaceChildren();
+  const h = document.createElement('div'); h.className = 'th'; h.textContent = title; tip.appendChild(h);
+  for (const r of rows) {
+    const d = document.createElement('div'); d.className = 'row';
+    if (r.color) { const i = document.createElement('i'); i.style.background = r.color; d.appendChild(i); }
+    const b = document.createElement('b'); b.textContent = r.value; d.appendChild(b);
+    if (r.label) { const s = document.createElement('span'); s.textContent = r.label; d.appendChild(s); }
+    tip.appendChild(d);
+  }
+  const x = ev.clientX + 14, y = ev.clientY + 14;
+  tip.style.left = Math.min(x, innerWidth - tip.offsetWidth - 8) + 'px';
+  tip.style.top = Math.min(y, innerHeight - tip.offsetHeight - 8) + 'px';
+  tip.style.opacity = 1;
+}
+const hideTip = () => { tip.style.opacity = 0; };
+
+// ---- svg helpers ----
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function txt(parent, x, y, s, attrs = {}) { const t = el('text', { x, y, ...attrs }, parent); t.textContent = s; return t; }
+function niceTicks(lo, hi, n = 5) {
+  const span = hi - lo, step0 = span / n, mag = 10 ** Math.floor(Math.log10(step0));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => span / s <= n) || mag * 10;
+  const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+function frame(container, h, m) {
+  container.replaceChildren();
+  const w = Math.max(container.clientWidth, 280);
+  const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' }, container);
+  return { svg, w, h, iw: w - m.l - m.r, ih: h - m.t - m.b, m };
+}
+function legend(id, items) {
+  const L = document.getElementById(id); if (!L) return; L.replaceChildren();
+  for (const it of items) {
+    const s = document.createElement('span'), i = document.createElement('i');
+    if (it.box) i.className = 'box'; i.style.background = it.color; s.append(i, document.createTextNode(it.name)); L.appendChild(s);
+  }
+}
+
+// ---- line chart: series of {x, y, sd}; crosshair snaps to nearest x ----
+function lineChart(container, o) {
+  const F = frame(container, o.h || 280, { t: 12, r: 16, b: 38, l: 48 });
+  const g = el('g', { transform: `translate(${F.m.l},${F.m.t})` }, F.svg);
+  const xs = [...new Set(o.series.flatMap(s => s.pts.map(p => p.x)))].sort((a, b) => a - b);
+  const xmin = Math.min(...xs), xmax = Math.max(...xs);
+  const X = o.xlog ? v => (Math.log2(v) - Math.log2(xmin)) / (Math.log2(xmax) - Math.log2(xmin) || 1) * F.iw
+                   : v => (v - xmin) / (xmax - xmin || 1) * F.iw;
+  const all = o.series.flatMap(s => s.pts.flatMap(p => [p.y - (p.sd || 0), p.y + (p.sd || 0)])).concat(o.ref ? [o.ref.y] : []);
+  let lo = Math.min(...all), hi = Math.max(...all); const pad = (hi - lo) * 0.12 || 0.05; lo -= pad; hi += pad;
+  if (o.ymin !== undefined) lo = o.ymin; if (o.ymax !== undefined) hi = o.ymax;
+  const Y = v => F.ih - (v - lo) / (hi - lo) * F.ih;
+  for (const t of niceTicks(lo, hi, 5)) {
+    el('line', { x1: 0, x2: F.iw, y1: Y(t), y2: Y(t), stroke: css('--grid') }, g);
+    txt(g, -8, Y(t) + 4, o.yfmt ? o.yfmt(t) : t, { 'text-anchor': 'end' });
+  }
+  for (const t of (o.xticks || xs)) txt(g, X(t), F.ih + 18, t, { 'text-anchor': 'middle' });
+  if (o.xlabel) txt(g, F.iw / 2, F.ih + 34, o.xlabel, { 'text-anchor': 'middle' });
+  if (o.ref) {
+    el('line', { x1: 0, x2: F.iw, y1: Y(o.ref.y), y2: Y(o.ref.y), stroke: css('--ink-3'), 'stroke-dasharray': '4 3' }, g);
+    txt(g, F.iw - 4, Y(o.ref.y) + 14, o.ref.label, { fill: css('--ink-3'), 'text-anchor': 'end' });
+  }
+  if (o.vline) for (const v of o.vline) el('line', { x1: X(v), x2: X(v), y1: 0, y2: F.ih, stroke: css('--ink-3'), 'stroke-dasharray': '4 3' }, g);
+  for (const s of o.series) {
+    const c = s.color;
+    for (const p of s.pts) if (p.sd) el('line', { x1: X(p.x), x2: X(p.x), y1: Y(p.y - p.sd), y2: Y(p.y + p.sd), stroke: c, 'stroke-width': 1.5, opacity: 0.55 }, g);
+    el('path', { d: s.pts.map((p, i) => (i ? 'L' : 'M') + X(p.x) + ',' + Y(p.y)).join(''), fill: 'none', stroke: c, 'stroke-width': 2, 'stroke-dasharray': s.dash || '' }, g);
+    if (!s.noMarkers) for (const p of s.pts) el('circle', { cx: X(p.x), cy: Y(p.y), r: 4, fill: c, stroke: css('--surface'), 'stroke-width': 2 }, g);
+  }
+  const hair = el('line', { y1: 0, y2: F.ih, stroke: css('--ink-3'), opacity: 0 }, g);
+  const hit = el('rect', { width: F.iw, height: F.ih, fill: 'transparent' }, g);
+  hit.addEventListener('pointermove', ev => {
+    const r = F.svg.getBoundingClientRect(), px = (ev.clientX - r.left) * (F.w / r.width) - F.m.l;
+    const x = xs.reduce((a, b) => Math.abs(X(b) - px) < Math.abs(X(a) - px) ? b : a);
+    hair.setAttribute('x1', X(x)); hair.setAttribute('x2', X(x)); hair.setAttribute('opacity', 0.6);
+    const rows = o.series.map(s => { const p = s.pts.find(q => q.x === x); return p && { color: s.color, value: (o.vfmt || (v => f(v)))(p.y) + (p.sd ? ' ± ' + (o.vfmt || (v => f(v)))(p.sd) : ''), label: s.name }; }).filter(Boolean);
+    showTip(ev, (o.xname || 'x') + ' ' + x, rows);
+  });
+  hit.addEventListener('pointerleave', () => { hair.setAttribute('opacity', 0); hideTip(); });
+}
+
+// ---- bars: items {label, value, sd?, dots?, color} ; horizontal ----
+function hbars(container, o) {
+  const rowH = o.rowH || 34, h = o.items.length * rowH + 34;
+  const F = frame(container, h, { t: 6, r: 56, b: 26, l: o.labelW || 110 });
+  const g = el('g', { transform: `translate(${F.m.l},${F.m.t})` }, F.svg);
+  const lo = o.min ?? 0, hi = o.max ?? Math.max(...o.items.map(i => i.value + (i.sd || 0))) * 1.08;
+  const X = v => (v - lo) / (hi - lo) * F.iw;
+  for (const t of niceTicks(lo, hi, 5)) { el('line', { x1: X(t), x2: X(t), y1: 0, y2: o.items.length * rowH, stroke: css('--grid') }, g); txt(g, X(t), o.items.length * rowH + 16, o.fmt ? o.fmt(t) : t, { 'text-anchor': 'middle' }); }
+  o.items.forEach((it, i) => {
+    const y = i * rowH + rowH * 0.2, bh = rowH * 0.6;
+    txt(g, -10, y + bh / 2 + 4, it.label, { 'text-anchor': 'end', fill: css('--ink') });
+    const x0 = X(Math.min(0, it.value)), w = Math.abs(X(it.value) - X(0));
+    const bar = el('rect', { x: x0, y, width: Math.max(w, 1), height: bh, rx: 4, fill: it.color }, g);
+    if (it.sd) el('line', { x1: X(it.value - it.sd), x2: X(it.value + it.sd), y1: y + bh / 2, y2: y + bh / 2, stroke: css('--ink'), 'stroke-width': 1.5 }, g);
+    if (it.dots) for (const d of it.dots) el('circle', { cx: X(d), cy: y + bh / 2, r: 4, fill: css('--surface'), stroke: css('--ink'), 'stroke-width': 1.5 }, g);
+    txt(g, Math.max(X(it.value), X(it.value + (it.sd || 0)), ...(it.dots || []).map(X)) + 8, y + bh / 2 + 4, o.fmt ? o.fmt(it.value) : it.value, { fill: css('--ink') });
+    const hit = el('rect', { x: 0, y: i * rowH, width: F.iw, height: rowH, fill: 'transparent' }, g);
+    hit.addEventListener('pointermove', ev => { bar.setAttribute('opacity', 0.8); showTip(ev, it.label, it.tip || [{ color: it.color, value: (o.fmt || String)(it.value) + (it.sd ? ' ± ' + (o.fmt || String)(it.sd) : '') }]); });
+    hit.addEventListener('pointerleave', () => { bar.setAttribute('opacity', 1); hideTip(); });
+  });
+}
+
+// ---- grouped vertical bars: groups [label], series [{name,color,values,sds?}] ----
+function gbars(container, o) {
+  const F = frame(container, o.h || 260, { t: 12, r: 12, b: o.rot ? 70 : 34, l: 44 });
+  const g = el('g', { transform: `translate(${F.m.l},${F.m.t})` }, F.svg);
+  const hi = o.max ?? Math.max(...o.series.flatMap(s => s.values.map((v, i) => v + ((s.sds || [])[i] || 0)))) * 1.1;
+  const Y = v => F.ih - v / hi * F.ih;
+  for (const t of niceTicks(0, hi, 5)) { el('line', { x1: 0, x2: F.iw, y1: Y(t), y2: Y(t), stroke: css('--grid') }, g); txt(g, -8, Y(t) + 4, o.fmt ? o.fmt(t) : t, { 'text-anchor': 'end' }); }
+  const gw = F.iw / o.groups.length, ns = o.series.length, bw = Math.min(28, (gw * 0.75 - (ns - 1) * 2) / ns);
+  o.groups.forEach((lab, gi) => {
+    const x0 = gi * gw + (gw - (bw * ns + 2 * (ns - 1))) / 2;
+    if (o.rot) txt(g, gi * gw + gw / 2, F.ih + 12, lab, { 'text-anchor': 'end', transform: `rotate(-35 ${gi * gw + gw / 2} ${F.ih + 12})` });
+    else txt(g, gi * gw + gw / 2, F.ih + 18, lab, { 'text-anchor': 'middle' });
+    o.series.forEach((s, si) => {
+      const v = s.values[gi], x = x0 + si * (bw + 2);
+      const bar = el('path', { d: `M${x},${F.ih}V${Y(v) + 4}q0,-4 4,-4h${bw - 8}q4,0 4,4V${F.ih}Z`, fill: s.color }, g);
+      if (v <= 0) bar.setAttribute('d', `M${x},${F.ih}h${bw}v-1h-${bw}Z`);
+      const sd = (s.sds || [])[gi]; if (sd) el('line', { x1: x + bw / 2, x2: x + bw / 2, y1: Y(v - sd), y2: Y(v + sd), stroke: css('--ink'), 'stroke-width': 1.5 }, g);
+      const hit = el('rect', { x: x - 1, y: 0, width: bw + 2, height: F.ih, fill: 'transparent' }, g);
+      hit.addEventListener('pointermove', ev => { bar.setAttribute('opacity', 0.8); showTip(ev, lab, o.series.map(t => ({ color: t.color, value: (o.fmt || String)(t.values[gi]) + ((t.sds || [])[gi] ? ' ± ' + (o.fmt || String)(t.sds[gi]) : ''), label: t.name }))); });
+      hit.addEventListener('pointerleave', () => { bar.setAttribute('opacity', 1); hideTip(); });
+    });
+  });
+}
+
+function lum(hex) { const n = parseInt(hex.replace('#', ''), 16), c = [n >> 16, (n >> 8) & 255, n & 255].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; }
+
+// ---- tables ----
+function table(id, head, rows, numCols = []) {
+  const box = document.getElementById(id); box.replaceChildren();
+  const t = document.createElement('table'), thead = t.createTHead().insertRow();
+  head.forEach((h, i) => { const th = document.createElement('th'); th.textContent = h; if (numCols.includes(i)) th.className = 'n'; thead.appendChild(th); });
+  const tb = t.createTBody();
+  rows.forEach(r => { const tr = tb.insertRow(); r.forEach((c, i) => { const td = tr.insertCell(); td.textContent = c; if (numCols.includes(i)) td.className = 'n'; }); });
+  box.appendChild(t);
+}
+document.querySelectorAll('[data-table]').forEach(b => b.addEventListener('click', () => {
+  const box = document.getElementById('t-' + b.dataset.table); box.hidden = !box.hidden; b.textContent = box.hidden ? 'Show table' : 'Hide table';
+}));
+
+
+
+
+function seg(id, cb) {
+  const box = document.getElementById(id);
+  box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    box.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cb(b.dataset.k);
+  }));
+  return () => box.querySelector('[aria-pressed="true"]').dataset.k;
+}
+
+// ---- sections ----
+const T = D.tuned, GQ = g => D.q[g], N20 = (g, c) => GQ(g)[c].k['20'].ndcg, L20 = (g, c) => GQ(g)[c].k['20'].lift;
+const graphs = { tr: 'large', ct: 'large', neg: 'large', pq: 'large', st: 'large', k: 'large', sw: 'large', fb: 'fb_large' };
+
+function xy(container, o) {
+  const F = frame(container, 340, { t: 14, r: 18, b: 42, l: 48 });
+  const g = el('g', { transform: `translate(${F.m.l},${F.m.t})` }, F.svg);
+  const xmax = Math.max(...o.pts.map(p => p.x)) * 1.12, ymax = Math.max(...o.pts.map(p => p.y)) * 1.12;
+  const X = v => v / xmax * F.iw, Y = v => F.ih - v / ymax * F.ih;
+  for (const t of niceTicks(0, ymax, 5)) { el('line', { x1: 0, x2: F.iw, y1: Y(t), y2: Y(t), stroke: css('--grid') }, g); txt(g, -8, Y(t) + 4, t, { 'text-anchor': 'end' }); }
+  for (const t of niceTicks(0, xmax, 6)) txt(g, X(t), F.ih + 18, t, { 'text-anchor': 'middle' });
+  txt(g, F.iw / 2, F.ih + 36, 'NDCG@20 on held-out links', { 'text-anchor': 'middle' });
+  txt(g, 0, -2, 'Lift@20', {});
+  const placed = o.pts.map(p => [X(p.x) - 8, Y(p.y) - 8, X(p.x) + 8, Y(p.y) + 8]);
+  o.pts.forEach(p => {
+    const cx = X(p.x), cy = Y(p.y);
+    let dy = -10; const left = cx > F.iw * 0.72, w = p.name.length * 6.6;
+    const box = dy2 => { const x0 = left ? cx - 10 - w : cx + 10; return [x0, cy + dy2 - 10, x0 + w, cy + dy2 + 3]; };
+    const hits = b => placed.some(a => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3]);
+    for (const c of [4, -12, 20, -26, 34, -40, 48]) { dy = c; if (!hits(box(c))) break; }
+    placed.push(box(dy));
+    txt(g, left ? cx - 10 : cx + 10, cy + dy, p.name, { 'text-anchor': left ? 'end' : 'start', fill: css('--ink-2') });
+    const m = el('circle', { cx, cy, r: 6, fill: p.color, stroke: css('--surface'), 'stroke-width': 2 }, g);
+    const hit = el('circle', { cx, cy, r: 16, fill: 'transparent' }, g);
+    hit.addEventListener('pointermove', ev => { m.setAttribute('r', 8); showTip(ev, p.name, [{ color: p.color, value: f(p.x, 3), label: 'NDCG@20' }, { color: p.color, value: f(p.y, 2), label: 'Lift@20' }]); });
+    hit.addEventListener('pointerleave', () => { m.setAttribute('r', 6); hideTip(); });
+  });
+}
+
+const METHODS = () => [['base_aa', 'Adamic-Adar', '--s-base'], ['base_cn', 'Common neighbours', '--s-base'], ['base_popularity', 'Popularity', '--s-base'], ['base_random', 'Random', '--s-base'],
+  ['dw_hsns', 'DeepWalk as written', '--s1'], ['n2v_tuned', 'node2vec tuned', '--s2'], ['n2v_hs', 'node2vec, HS', '--s3']];
+function rTr() {
+  const g = graphs.tr;
+  legend('l-tr', [['Heuristics and baselines', '--s-base'], ['DeepWalk', '--s1'], ['node2vec, tuned', '--s2'], ['node2vec, HS', '--s3']].map(([name, c]) => ({ name, color: css(c) })));
+  xy(document.getElementById('c-tr'), { pts: METHODS().map(([c, name, col]) => ({ name, x: N20(g, c), y: L20(g, c), color: css(col) })) });
+  table('t-tr', ['Method', 'NDCG@20', 'sd', 'NDCG@5', 'Hit@20', 'Lift@20', 'Lift@5'], METHODS().map(([c, n]) => { const e = GQ(g)[c]; return [n, f(e.k['20'].ndcg, 3), f(e.sd, 4), f(e.k['5'].ndcg, 3), f(e.k['20'].hit, 3), f(e.k['20'].lift), f(e.k['5'].lift)]; }), [1, 2, 3, 4, 5, 6]);
+}
+function rCt() {
+  const g = graphs.ct, Q = GQ(g), ser = [['DeepWalk walks', '--s1', ['dw_ns', 'dw_hs', 'dw_hsns']], ['node2vec p=q=1', '--s2', ['n2v_ns', 'n2v_hs', 'n2v_hsns']]];
+  legend('l-ct', ser.map(s => ({ name: s[0], color: css(s[1]), box: true })));
+  gbars(document.getElementById('c-ct'), { fmt: v => f(v, 2), h: 280, groups: ['Negative sampling', 'Hierarchical softmax', 'Both (DeepWalk as written)'],
+    series: ser.map(s => ({ name: s[0], color: css(s[1]), values: s[2].map(c => Q[c].k['20'].ndcg), sds: s[2].map(c => Q[c].sd) })) });
+  const rows = [['Same loss, NS: DeepWalk over node2vec', 'dw_ns-n2v_ns'], ['Same loss, HS: DeepWalk over node2vec', 'dw_hs-n2v_hs'], ['Loss: HS over NS', 'n2v_hs-n2v_ns'], ['Loss: both over NS', 'n2v_hsns-n2v_ns'], ['Walk bias: tuned over p=q=1', T + '-n2v_ns'], ['Headline: DeepWalk as written over tuned', 'dw_hsns-' + T]];
+  table('t-ct', ['Comparison', 'Gap in NDCG@20', '95% node CI', 'Seed t'], rows.map(([n, k]) => { const p = P(g + ':' + k); return [n, sg(p.diff), `[${sg(p.ci[0])}, ${sg(p.ci[1])}]`, (p.seed_t > 0 ? '+' : '') + f(p.seed_t, 1)]; }), [1, 3]);
+}
+function rNeg() {
+  const g = graphs.neg, Q = GQ(g), cs = [['n2v_ns+negative=1', 'NS, 1 negative'], ['n2v_ns', 'NS, 5 negatives'], ['n2v_ns+negative=15', 'NS, 15 negatives'], ['n2v_ns+negative=30', 'NS, 30 negatives'], ['n2v_hs', 'HS']];
+  hbars(document.getElementById('c-neg'), { labelW: 130, fmt: v => f(v, 3), items: cs.map(([c, n], i) => ({ label: n, value: Q[c].k['20'].ndcg, sd: Q[c].sd, color: css(i === 4 ? '--s3' : '--s2') })) });
+}
+function rPq() {
+  const g = graphs.pq, box = document.getElementById('c-pq'), cells = Object.values(D.cells[g]);
+  box.replaceChildren();
+  const ps = [...new Set(cells.map(c => c.p))].sort((a, b) => a - b), qs = [...new Set(cells.map(c => c.q))].sort((a, b) => a - b);
+  const w = Math.max(box.clientWidth, 280), lab = 48, cw = Math.min(88, (w - lab) / qs.length), ch = 42, svg = el('svg', { viewBox: `0 0 ${w} ${ps.length * ch + 48}`, role: 'img' }, box);
+  const G = el('g', { transform: `translate(${lab},4)` }, svg), vals = cells.map(c => c.val), lo = Math.min(...vals), hi = Math.max(...vals), steps = ['--seq-1', '--seq-2', '--seq-3', '--seq-4', '--seq-5'];
+  ps.forEach((p, i) => { txt(G, -8, i * ch + ch / 2 + 4, 'p=' + p, { 'text-anchor': 'end' });
+    qs.forEach((q, j) => {
+      const c = cells.find(x => x.p === p && x.q === q), fill = css(steps[Math.min(4, Math.floor((c.val - lo) / (hi - lo + 1e-12) * 5))]), sel = p === D.tp && q === D.tq;
+      const r = el('rect', { x: j * cw + 1.5, y: i * ch + 1.5, width: cw - 3, height: ch - 3, rx: 4, fill, stroke: sel ? css('--s2') : 'none', 'stroke-width': sel ? 3 : 0 }, G);
+      txt(G, j * cw + cw / 2, i * ch + ch / 2 + 4, f(c.val, 3), { 'text-anchor': 'middle', style: `font-weight:${sel ? 700 : 400};fill:${lum(fill) > 0.45 ? '#0b0b0b' : '#ffffff'}` });
+      r.addEventListener('pointermove', ev => showTip(ev, `p=${p}, q=${q}`, [{ value: f(c.val, 4) + ' ± ' + f(c.sd, 4), label: 'validation NDCG@20' }, { value: f(c.lift), label: 'lift, not used to choose' }]));
+      r.addEventListener('pointerleave', hideTip);
+    }); });
+  qs.forEach((q, j) => txt(G, j * cw + cw / 2, ps.length * ch + 16, 'q=' + q, { 'text-anchor': 'middle' }));
+}
+function rNoise() {
+  const rows = [['Tuned node2vec over p=q=1, NS', T, 'n2v_ns'], ['DeepWalk as written over p=q=1, NS', 'dw_hsns', 'n2v_ns'], ['Adamic-Adar over DeepWalk as written', 'base_aa', 'dw_hsns']];
+  table('t-gaps', ['Graph', 'Gap in NDCG@20', 'Split 0', 'Split 1', 'Split 2'], ['small', 'large'].flatMap(g => rows.map(([n, a, b]) => [GN[g], n, ...['0', '1', '2'].map(s => sg(GQ(g)[a].splits[s] - GQ(g)[b].splits[s]))])), [2, 3, 4]);
+  table('t-jac', ['Graph', 'Method', 'Top 5', 'Top 20', 'p10, top 20', 'p90, top 20'], ['small', 'large'].flatMap(g => [['dw_hsns', 'DeepWalk as written'], ['n2v_ns', 'node2vec p=q=1, NS']].map(([c, n]) => { const j = D.jaccard[g][c]; return [GN[g], n, f(j['5'].mean), f(j['20'].mean), f(j['20'].p10), f(j['20'].p90)]; })), [2, 3, 4, 5]);
+}
+const HUBROWS = () => [['base_aa', 'Adamic-Adar', '--s-base'], ['base_cn', 'Common neighbours', '--s-base'], ['dw_hs', 'DeepWalk walks, HS', '--s3'], ['dw_hsns', 'DeepWalk as written', '--s1'], [T, 'node2vec tuned', '--s2']];
+function rHub() {
+  const t = D.hubs.large.table;
+  hbars(document.getElementById('c-hub'), { labelW: 136, fmt: v => (100 * v).toFixed(1) + '%', items: HUBROWS().map(([c, n, col]) => ({ label: n, value: t[c].hub_slots, color: css(col) })) });
+  legend('l-hub2', [{ name: 'All articles', color: css('--s1'), box: true }, { name: 'Hubs out', color: css('--s2'), box: true }]);
+  gbars(document.getElementById('c-hub2'), { fmt: v => f(v, 2), h: 240, rot: true, groups: HUBROWS().map(r => r[1]), series: [{ name: 'All articles', color: css('--s1'), values: HUBROWS().map(r => t[r[0]].ndcg) }, { name: 'Hubs out', color: css('--s2'), values: HUBROWS().map(r => t[r[0]].ndcg_nohub) }] });
+}
+function rSt() {
+  const g = graphs.st, s = D.strata[g];
+  table('t-st', ['Method', 'Q1', 'Q2', 'Q3', 'Q4', 'Hits within 2 hops', 'Hits beyond', 'Slots within 2 hops'], HUBROWS().map(([c, n]) => { const e = s.table[c]; return [n, ...e.ndcg_by_bin.map(x => f(x, 3)), f(e.near_hits, 0), f(e.far_hits, 1), pct(e.top_in_2hop)]; }), [1, 2, 3, 4, 5, 6, 7]);
+  document.getElementById('st-note').textContent = `Test edges beyond two hops: ${s.n_far.toLocaleString()} of ${s.n_test.toLocaleString()}.`;
+}
+function rDist() {
+  table('t-dist', ['Graph', 'Metric', 'NDCG@20', 'NDCG@5', 'Lift@20', 'Lift@5', 'Overlap with cosine', 'Mean degree recommended'], ['small', 'large'].flatMap(g => ['cosine', 'dot', 'euclidean'].map(m => { const e = D.distance[g][m]; return [GN[g], m, f(e.ndcg20, 3), f(e.ndcg5, 3), f(e.lift20), f(e.lift5), f(e.jaccard_cos), f(e.rec_degree, 0)]; })), [2, 3, 4, 5, 6, 7]);
+}
+const KS = [1, 5, 10, 20, 50];
+function rK() {
+  const g = graphs.k, Q = GQ(g), rows = [['dw_hsns', 'DeepWalk as written', '--s1'], ['n2v_tuned', 'node2vec tuned', '--s2'], ['base_aa', 'Adamic-Adar', '--s-base']];
+  const cap = { name: 'Ceiling (DeepWalk)', color: css('--ink-3'), dash: '4 3', noMarkers: true, pts: KS.map(k => ({ x: k, y: Q.dw_hsns.k[k].cap })) };
+  legend('l-k1', [...rows.map(r => ({ name: r[1], color: css(r[2]) })), { name: 'Ceiling', color: css('--ink-3') }]);
+  lineChart(document.getElementById('c-k1'), { xlog: true, xticks: KS, xname: 'K =', xlabel: 'K', ymin: 0, yfmt: v => v, vfmt: v => f(v, 3), series: [...rows.map(([c, n, col]) => ({ name: n, color: css(col), pts: KS.map(k => ({ x: k, y: Q[c].k[k].p })) })), cap] });
+  legend('l-k2', rows.map(r => ({ name: r[1], color: css(r[2]) })));
+  lineChart(document.getElementById('c-k2'), { xlog: true, xticks: KS, xname: 'K =', xlabel: 'K', ymin: 0, yfmt: v => v, vfmt: v => f(v, 3), series: rows.map(([c, n, col]) => ({ name: n, color: css(col), pts: KS.map(k => ({ x: k, y: Q[c].k[k].ndcg })) })) });
+}
+const SWEEPS = { d: [32, 64, 128, 256], l: [20, 40, 80], w: [5, 10, 20], epochs: [1, 5, 10] };
+function rSw() {
+  const g = graphs.sw, Q = GQ(g), base = { d: D.shared.d, l: D.shared.l, w: D.shared.w, epochs: D.shared.epochs };
+  const cfg = (s, v) => v === base[s] ? 'n2v_ns' : `n2v_ns+${s}=${v}`, all = [];
+  const vals = Object.entries(SWEEPS).flatMap(([s, vs]) => vs.map(v => Q[cfg(s, v)]).filter(Boolean).map(e => e.k['20'].ndcg));
+  const ymin = Math.min(...vals) * 0.9, ymax = Math.max(...vals) * 1.06;
+  for (const [s, vs] of Object.entries(SWEEPS)) {
+    const pts = vs.filter(v => Q[cfg(s, v)]).map(v => { const e = Q[cfg(s, v)]; all.push([s, v, f(e.k['20'].ndcg, 3), f(e.sd, 4), f(e.k['20'].lift), e.n]); return { x: v, y: e.k['20'].ndcg }; });
+    lineChart(document.getElementById('c-sw-' + s), { h: 210, xlog: s !== 'x', xticks: vs, xname: s + ' =', ymin, ymax, yfmt: v => f(v, 3), vfmt: v => f(v, 3), series: [{ name: 'NDCG@20', color: css('--s2'), pts }] });
+  }
+  table('t-sw', ['Setting', 'Value', 'NDCG@20', 'sd', 'Lift@20', 'Seeds'], all, [1, 2, 3, 4, 5]);
+}
+function rCost() {
+  const t = D.timing.large, rows = [['dw_hsns', 'DeepWalk as written'], [T, 'node2vec tuned'], ['dw_ns', 'DeepWalk walks, NS'], ['dw_hs', 'DeepWalk walks, HS'], ['n2v_ns', 'node2vec p=q=1, NS']];
+  const ph = [['precompute_s', 'Precompute', '--s3'], ['walk_s', 'Walks', '--s2'], ['train_s', 'Word2vec', '--s1']];
+  legend('l-ph', ph.map(p => ({ name: p[1], color: css(p[2]), box: true })));
+  gbars(document.getElementById('c-ph'), { fmt: v => f(v, 0) + ' s', h: 280, groups: rows.map(r => r[1]), series: ph.map(([k, n, c]) => ({ name: n, color: css(c), values: rows.map(r => t[r[0]]['1'][k].mean) })) });
+  table('t-ph', ['Row', 'Precompute s', 'Walks s', 'Word2vec s', 'Total s', 'Query ms', 'p95 ms', 'Peak MB'], [...rows, ['base_aa', 'Adamic-Adar']].map(([c, n]) => { const x = t[c]['1']; return [n, f(x.precompute_s.mean, 1), f(x.walk_s.mean, 1), f(x.train_s.mean, 1), f(x.total_s.mean, 1) + ' ± ' + f(x.total_s.sd, 1), f(x.latency_mean_ms.mean), f(x.latency_p95_ms.mean), f(x.peak_rss_mb.mean, 0)]; }), [1, 2, 3, 4, 5, 6, 7]);
+  const W = [1, 2, 4, 8], wr = [['dw_ns', 'DeepWalk walks, NS', '--s1'], ['n2v_ns', 'node2vec p=q=1, NS', '--s2']];
+  legend('l-wk', wr.map(r => ({ name: r[1], color: css(r[2]) })));
+  lineChart(document.getElementById('c-wk'), { xlog: true, xticks: W, xname: 'workers =', xlabel: 'Workers', ymin: 0, yfmt: v => v + ' s', vfmt: v => f(v, 0) + ' s', series: wr.map(([c, n, col]) => ({ name: n, color: css(col), pts: W.filter(w => t[c][w]).map(w => ({ x: w, y: t[c][w].total_s.mean })) })) });
+  const s = D.timing.small, r = (lab, c, k, dp) => [lab, f(s[c]['1'][k].mean, dp), f(t[c]['1'][k].mean, dp), f(t[c]['1'][k].mean / s[c]['1'][k].mean, 0) + '×'];
+  table('t-sc', ['Phase', 'Small s', 'Large s', 'Ratio'], [r('node2vec precompute', 'n2v_ns', 'precompute_s', 1), r('node2vec walks', 'n2v_ns', 'walk_s', 1), r('DeepWalk walks', 'dw_ns', 'walk_s', 1), r('Word2vec, NS', 'dw_ns', 'train_s', 1), r('Word2vec, HS', 'dw_hs', 'train_s', 1), r('Peak memory, MB', 'n2v_ns', 'peak_rss_mb', 0)], [1, 2, 3]);
+}
+function rGrowth() {
+  const m = D.cross.metrics, ex = D.cross.examples.Integrated_circuit;
+  table('t-gr', ['Measure', 'Top 5', 'Top 20'], [['Overlap of the small-graph list with the large-graph list restricted to physics', f(m.jaccard5), f(m.jaccard20)], ['Share of the large-graph list that is physics', f(m.phys_share5), f(m.phys_share20)], ['Subcategory agreement, small graph', f(m.agree_small5), f(m.agree_small20)], ['Subcategory agreement, large graph restricted to physics', f(m.agree_large_phys5), f(m.agree_large_phys20)], ['Subcategory agreement, large graph unrestricted', f(m.agree_large_all5), f(m.agree_large_all20)]], [1, 2]);
+  const nm = xs => xs.slice(0, 3).map(x => x.replaceAll('_', ' ')).join(', ');
+  document.getElementById('gr-note').textContent = `Seed-to-seed overlap at top 20 is about ${f(D.cross.seedj)}, against ${f(m.jaccard20)} across graphs. The clearest case is Integrated circuit. Physics-only, its top three are ${nm(ex.small)}. On the large graph they are ${nm(ex.large_all)}. Inducing a subgraph removes context a node depends on, and that hurts most for articles that sit between topics.`;
+}
+function rFb() {
+  const g = graphs.fb, Q = GQ(g), rows = [['base_aa', 'Adamic-Adar'], ['base_cn', 'Common neighbours'], ['dw_hsns', 'DeepWalk as written'], ['n2v_ns', 'node2vec p=q=1, NS'], ['n2v_hs', 'node2vec p=q=1, HS'], ['n2v_p0.25_q4', 'node2vec p=0.25, q=4'], ['n2v_p4_q0.25', 'node2vec p=4, q=0.25']];
+  table('t-fb', ['Method', 'NDCG@20', 'sd', 'Lift@20', 'Seeds'], rows.map(([c, n]) => { const e = Q[c]; return [n, f(e.k['20'].ndcg, 3), f(e.sd, 3), f(e.k['20'].lift), e.n]; }), [1, 2, 3, 4]);
+}
+function rG() { table('t-g', ['Graph', 'Nodes', 'Edges', 'Max degree', 'Labelled nodes', 'Rule'], [['small', 'Wikispeedia, physics'], ['large', 'Wikispeedia, largest component'], ['fb_small', 'ego-Facebook, one ego net'], ['fb_large', 'ego-Facebook, combined']].map(([g, n]) => { const p = D.prov[g]; return [n, p.nodes.toLocaleString(), p.edges.toLocaleString(), p.max_degree, p.labelled.toLocaleString(), p.rule]; }), [1, 2, 3, 4]); }
+
+let xq = D.queries[0], xg = 'large', xk = '5';
+function drawLists() {
+  const e = D.lists[xg][xq], box = document.getElementById('x-lists'); box.replaceChildren();
+  document.getElementById('x-stat').textContent = `${xq.replaceAll('_', ' ')} has ${D.degrees[xq][xg + '_degree']} links on this graph. Overlap between the two algorithms' top ${xk}, mean over seeds: ${f(e.between[xk])}.`;
+  for (const [a, col] of [['DeepWalk', '--s1'], ['node2vec', '--s2']]) {
+    const c = document.createElement('div'); c.className = 'card';
+    const h = document.createElement('div'); h.className = 'ctitle'; h.textContent = a === 'node2vec' ? 'node2vec tuned' : 'DeepWalk as written';
+    const s = document.createElement('div'); s.className = 'csub'; s.textContent = `Same label: ${pct(e[a][xk].label)}. Seed-to-seed overlap: ${f(e[a][xk].seed_jaccard)}.`;
+    const ol = document.createElement('ol'); ol.className = 'recs';
+    for (const it of e[a][xk].items) {
+      const li = document.createElement('li'), t = document.createElement('span'); t.className = 'rt'; t.textContent = it.title.replaceAll('_', ' '); li.appendChild(t);
+      const tags = document.createElement('span'); tags.className = 'tags';
+      const add = x => { const g = document.createElement('span'); g.className = 'tag'; g.textContent = x; tags.appendChild(g); };
+      if (it.label) add('same label'); if (it.train) add('in training'); if (it.held_out) add('held out'); add(it.seeds + '/5');
+      li.appendChild(tags); ol.appendChild(li);
+    }
+    c.append(h, s, ol); box.appendChild(c);
+  }
+}
+function initExplorer() {
+  const sel = document.getElementById('x-query');
+  D.queries.forEach(q => { const o = document.createElement('option'); o.value = q; o.textContent = q.replaceAll('_', ' '); sel.appendChild(o); });
+  sel.addEventListener('change', () => { xq = sel.value; drawLists(); });
+  seg('seg-xg', k => { xg = k; drawLists(); }); seg('seg-xk', k => { xk = k; drawLists(); }); drawLists();
+}
+function renderAll() { rTr(); rCt(); rNeg(); rPq(); rNoise(); rHub(); rSt(); rDist(); rK(); rSw(); rCost(); rGrowth(); rFb(); rG(); }
+for (const [id, key, fn] of [['seg-tr', 'tr', rTr], ['seg-ct', 'ct', rCt], ['seg-neg', 'neg', rNeg], ['seg-pq', 'pq', rPq], ['seg-st', 'st', rSt], ['seg-k', 'k', rK], ['seg-sw', 'sw', rSw], ['seg-fb', 'fb', rFb]]) seg(id, k => { graphs[key] = k; fn(); });
+renderAll(); initExplorer();
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(renderAll, 120); });
+</script>
+</body>
+</html>

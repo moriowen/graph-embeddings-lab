@@ -21,3 +21,5 @@ results/nodes/
 report/.report-print.html
 prompts-raw.md
 results/run_dev_*
+
+.vercel

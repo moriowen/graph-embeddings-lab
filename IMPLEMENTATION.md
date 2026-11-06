@@ -24,7 +24,7 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
 - `-m src.*` needs `PYTHONPATH=$PWD`. Python 3.11 only: gensim 4.3.3 has no 3.14 wheels.
 - Vendored DeepWalk's `if start:` skips node 0, so ids start at 1 (`src/data.py`, `src/embed.py`).
 - Timing on gold6226 only; `machine` separates `-grid` (contended, quality only) from `-8core` (timing tables).
-- The TDS blog returns HTTP 403 to automated fetches. The user has to read it in a browser, or Q1 discloses it wasn't read.
+- The TDS blog returns HTTP 403 to automated fetches. The user pasted it from a browser (P18).
 
 ## Results log
 
@@ -61,3 +61,18 @@ PYTHONPATH=$PWD .venv/bin/python -m src.stats
 - Part 2 job first failed: `tuning.json` is Mac-only. Fixed by copying it. Results unaffected.
 - Report: `report/report.html`, PDF built without the ID. Remaining for the user: read every 4b for voice, read the blog or accept the
   disclosure, then `STUDENT_ID=... python -m src.package`.
+
+### Nov 5 (night): outside review applied
+- PDF 26 -> 21 pages: one shared workflow table, verbatim `PROMPT.md` and the all-rows table removed from the PDF (`PROMPT.md` and `results/` are in the zip), non-result grid story cut from S11.
+- Small effects qualified. New S4 table of gaps per split: large-graph tuning gain +0.0026, +0.0020, +0.0037; small-graph +0.0006, +0.0180, -0.0035. Small-graph same-loss gap is unresolved because `dw_ns` ran on split 0 only.
+- Still open for the user: read the blog, rewrite 4b in their own words, `STUDENT_ID=... python -m src.package`.
+
+### Nov 5 (late): restructured to the rubric's 8-page body
+- Questions 1-8 now end on page 8 of 20; references follow. Former Part 2 is Appendix A; B prompts and workflow; C extended tables, Q4 table and two figures; D compute, glossary, handout anomalies. Body cites prompts by ID.
+- This departs from the HW3 layout (Part 2 in the body), which is what drew "Top submission". The 21-page version is not in git: only the working tree changed since the last commit.
+
+### Nov 5 (17:10): blog added
+- Q1 now covers the blog (Esteve 2021, P18). Table 1 and Appendix B now record Codex's reviews and the pasted blog. The prompts given to Codex aren't available here and the report says so.
+
+### Nov 5 (night): site deployed
+- https://graph-embeddings-lab.vercel.app, Vercel project `graph-embeddings-lab`, from `src/build_site.py` and `src/site_template.html`. Rebuild with `python -m src.build_site`, then `npx vercel deploy --prod`. The upload allowlist was checked: the PDF and handout URLs return 404. Report cover links the site.
